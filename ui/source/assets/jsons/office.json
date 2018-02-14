@@ -1,0 +1,55 @@
+{
+	"office": [
+		{
+			"time"  : "7:45",
+			"class" : "success",
+			"info"  : "Через 00:11",
+			"desc"  : "Следующий за ним - через 00:40"
+		},
+		{
+			"time"  : "8:20",
+			"class" : "alert",
+			"info"  : "Через 00:11",
+			"desc"  : "Следующий за ним - через 00:40"
+		},
+		{"time"  : "8:30"},
+		{"time"  : "8:40"},
+		{"time"  : "8:50"},
+		{"time"  : "9:00"},
+		{"time"  : "9:10"},
+		{"time"  : "9:20"},
+		{"time"  : "9:30"},
+		{"time"  : "9:40"},
+		{"time"  : "9:50"},
+		{"time"  : "10:00"},
+		{"time"  : "10:10"},
+		{"time"  : "10:20"},
+		{"time"  : "10:30"},
+		{"time"  : "10:40"},
+		{"time"  : "10:50"},
+		{"time"  : "11:10"},
+		{"time"  : "11:20"},
+		{"time"  : "11:30"},
+		{"time"  : "11:50"},
+		{"time"  : "12:10"},
+		{"time"  : "12:30"},
+		{"time"  : "13:10"},
+		{"time"  : "13:50"},
+		{"time"  : "14:30"},
+		{"time"  : "15:10"},
+		{
+			"time"  : "break",
+			"info"  : "Перерыв 1 час 20 минут",
+			"desc"  : "Воспользуйтесь общественным транспортом <svg class='icon-arrow-right'><use xlink:href='assets/svg/defs.svg#icon-arrow-right'></use></svg>"
+		},
+		{"time"  : "17:20"},
+		{"time"  : "18:00"},
+		{"time"  : "18:30"},
+		{
+			"time"  : "19:10",
+			"class" : "warning",
+			"info"  : "Последний 00:11",
+			"desc"  : "Всегда есть другие варианты <svg class='icon-arrow-right'><use xlink:href='assets/svg/defs.svg#icon-arrow-right'></use></svg>"
+		}
+	]
+}

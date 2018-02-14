@@ -1,0 +1,72 @@
+
+// ------------------------------------------------------------------------- //
+// Functions
+// ------------------------------------------------------------------------- //
+// scss-lint disable reason: ignore 0rem as function variable
+// scss-lint:disable ZeroUnit
+
+$rem-base: 16px !default;
+
+// STRIP UNIT
+// It strips the unit of measure and returns it
+@function strip-unit($num) {
+	@return $num / ($num * 0 + 1);
+}
+
+// CONVERT TO REM
+@function convert-to-rem($value, $base-value: $rem-base) {
+	$value: strip-unit($value) / strip-unit($base-value) * 1rem;
+	@if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+	@return $value;
+}
+
+// REM CALC
+// From Foundation Framework
+
+// New Syntax, allows to optionally calculate on a different base value to counter compounding effect of rem's.
+// Call with 1, 2, 3 or 4 parameters, 'px' is not required but supported:
+//
+//   rem(10 20 30px 40);
+//   output: margin: 0.625rem 1.25rem 1.875rem 2.5rem;
+//
+// Space delimited, if you want to delimit using comma's, wrap it in another pair of brackets
+//
+//   rem((10, 20, 30, 40px));
+//   output: margin: 0.625rem 1.25rem 1.875rem 2.5rem;
+//
+// Optionally call with a different base (eg: 8px) to calculate rem.
+//
+//   rem(10 20 30px 40, 8px);
+//   output: margin: 1.25rem 2.5rem 3.75rem 5rem;
+//
+// If you require to comma separate your list
+//
+//   rem((10, 20, 30px, 40), 8px);
+//   output: margin: 1.25rem 2.5rem 3.75rem 5rem;
+
+@function rem($values, $base-value: $rem-base) {
+	$max: length($values);
+
+	@if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
+
+	$rem-values: ();
+	@for $i from 1 through $max {
+		$rem-values: append($rem-values, convert-to-rem(nth($values, $i), $base-value));
+	}
+	@return $rem-values;
+}
+
+
+@function em($values) {
+	$rem-values: rem($values);
+
+	$max: length($rem-values);
+
+	@if $max == 1 { @return strip-unit(nth($rem-values, 1)) * 1em; }
+
+	$em-values: ();
+	@for $i from 1 through $max {
+		$em-values: append($em-values, strip-unit(nth($rem-values, $i)) * 1em);
+	}
+	@return $em-values;
+}

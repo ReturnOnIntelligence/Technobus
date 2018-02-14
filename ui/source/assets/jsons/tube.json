@@ -1,0 +1,46 @@
+{
+	"tube": [
+		{
+			"time"  : "9:30",
+			"class" : "success",
+			"info"  : "Через 00:11",
+			"desc"  : "Следующий за ним - через 00:40"
+		},
+		{"time"  : "10:50",
+			"class" : "alert",
+			"info"  : "Через 00:11",
+			"desc"  : "Следующий за ним - через 00:40"
+		},
+		{"time"  : "11:30"},
+		{"time"  : "12:10"},
+		{"time"  : "12:50"},
+		{"time"  : "13:30"},
+		{"time"  : "14:10"},
+		{"time"  : "14:50"},
+		{"time"  : "15:30"},
+		{
+			"time"  : "break",
+			"info"  : "Перерыв 1 час 20 минут",
+			"desc"  : "Воспользуйтесь общественным транспортом <svg class='icon-arrow-right'><use xlink:href='assets/svg/defs.svg#icon-arrow-right'></use></svg>"
+		},
+		{"time"  : "16:50"},
+		{"time"  : "17:00"},
+		{"time"  : "17:30"},
+		{"time"  : "17:40"},
+		{"time"  : "18:00"},
+		{"time"  : "18:10"},
+		{"time"  : "18:20"},
+		{"time"  : "18:40"},
+		{"time"  : "18:50"},
+		{"time"  : "19:20"},
+		{"time"  : "19:30"},
+		{"time"  : "20:10"},
+		{"time"  : "20:45"},
+		{
+			"time"  : "21:20",
+			"class" : "warning",
+			"info"  : "Последний 00:11",
+			"desc"  : "Всегда есть другие варианты <svg class='icon-arrow-right'><use xlink:href='assets/svg/defs.svg#icon-arrow-right'></use></svg>"
+		}
+	]
+}

@@ -1,0 +1,20 @@
+// ------------------------------------------------------------------------- //
+// Bus Stop
+// ------------------------------------------------------------------------- //
+.bus-stop-wrap {
+	@include flexbox();
+	@include flex-direction(column);
+
+	background:url(#{$get-path-to-images}/bus_stop_to_office@2x.png) 100% 100% no-repeat;
+	background-size:cover;
+
+	.bus-stop-map {
+		height:80vh;
+	}
+
+	.bus-stop-description {
+		padding:rem(20);
+		height:20vh;
+		color:$white;
+	}
+}

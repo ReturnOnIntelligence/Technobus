@@ -1,0 +1,25 @@
+{
+  "name": "Technobus",
+  "version": "1.0.0",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-bake": "*",
+    "grunt-contrib-clean": "*",
+    "grunt-contrib-copy": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-express": "*",
+    "grunt-html": "*",
+    "grunt-htmlhint": "*",
+    "grunt-jscs": "*",
+    "grunt-merge-json": "^0.9.5",
+    "grunt-newer": "*",
+    "grunt-sass": "*",
+    "grunt-scss-lint": "*",
+    "grunt-sftp-deploy": "*",
+    "grunt-svgstore": "^1.0.0",
+    "jshint-stylish": "*",
+    "load-grunt-tasks": "*",
+    "time-grunt": "*"
+  }
+}

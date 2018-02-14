@@ -1,0 +1,21 @@
+
+<!--(bake-start _if="item.time != 'break'")-->
+<li class="{{item.class}}">
+	<div class="time">{{item.time}}</div>
+	<div class="time-info">
+		<div class="info">{{item.info}}</div>
+		<div class="desc">{{item.desc}}</div>
+	</div>
+</li>
+<!--(bake-end)-->
+
+<!--(bake-start _if="item.time == 'break'")-->
+<li class="break">
+	<a href='map.html'>
+		<div class="time-info">
+			<div class="info">{{item.info}}</div>
+			<div class="desc">{{item.desc}}</div>
+		</div>
+	</a>
+</li>
+<!--(bake-end)-->

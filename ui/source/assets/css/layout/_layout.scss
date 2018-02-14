@@ -1,0 +1,28 @@
+// ------------------------------------------------------------------------- //
+// Layout
+// ------------------------------------------------------------------------- //
+html,
+body {
+	height:100%;
+}
+
+.page-wrap {
+	display:flex;
+	width:100%;
+	height:100%;
+	flex-direction:column;
+}
+
+.copyright {
+	padding:rem(10) 0;
+	background:#F2F7FB;
+
+	p {
+		margin-left:rem(20);
+		font-size:rem(11);
+	}
+
+	.tube & {
+		background:#F5F5F5;
+	}
+}

@@ -1,0 +1,15 @@
+{
+	"globals": {
+		"$": false,
+		"jQuery": false
+	},
+	"curly": true,
+	"eqeqeq": true,
+	"newcap": false,
+	"undef": true,
+	"unused": true,
+	"strict": true,
+	"boss": false,
+	"lastsemic": true,
+	"node": true
+}

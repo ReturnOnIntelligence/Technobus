@@ -1,0 +1,22 @@
+<!--(bake /source/includes/master/_header-meta.html pageTitle="Расписание автобусов")-->
+
+<div class="page-wrap">
+	<header>
+			<!--(bake /source/includes/master/_nav-main.html tube-nav="is-active")-->
+	</header>
+
+	<!-- TIMELINE - BEGINS -->
+	<section class="timeline-wrap tube">
+		<ul class="timeline">
+			<!--(bake /source/includes/_time-cell.html _foreach="item:tube")-->
+			<!--(bake /source/includes/master/_copyright.html)-->
+		</ul>
+	</section>
+	<!-- TIMELINE - ENDS -->
+
+	<footer>
+		<!--(bake /source/includes/master/_nav-extra.html)-->
+	</footer>
+</div>
+
+<!--(bake /source/includes/master/_footer-meta.html)-->
