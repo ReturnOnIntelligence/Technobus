@@ -5,29 +5,21 @@
 // 1. Global
 // 2. Typography
 // 3. Colors
+// 4. Path to Images
 
 // 1. Global
-// This is the default html and body font-size for the base rem value.
-// $rem-base: 16px;
-
-//$background: #F00;
-//$page-background: #FFF;
-//
 // z-index master list
 $offscreen-zindex: -9000px;
 
 //// 2. Typography
-//$font-size-base: 16px;
-//
-//
+
 // 3. Colors
 $black: #000;
 $white: #FFF;
 $primary: #006EAA;
 $active: #005CB9;
 $grey: #4A4A4A;
+$grey-light: #F5F5F5;
 
-
-//$black: #000;
-
+// 4. Path to Images
 $get-path-to-images: '../images';

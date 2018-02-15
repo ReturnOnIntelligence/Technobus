@@ -15,7 +15,14 @@
 		min-height:rem(48);
 		text-align:center;
 		text-decoration:none;
-		color:#424242;
+		color:$grey;
+
+		[class*='icon-'] {
+			width:24px;
+			height:24px;
+
+			&.icon-bag {width:41px;}
+		}
 
 		&.is-active {
 			[class*='icon-'] {

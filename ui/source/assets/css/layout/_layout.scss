@@ -26,3 +26,17 @@ body {
 		background:#F5F5F5;
 	}
 }
+
+
+.location-info {
+	li {
+		margin:rem(7 0 0);
+		color:$active;
+	}
+
+	[class*='icon-'] {
+		position:relative;
+		top:3px;
+		fill:$active;
+	}
+}

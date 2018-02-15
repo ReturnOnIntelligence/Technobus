@@ -17,8 +17,8 @@
 		min-height:rem(48);
 		text-align:center;
 		text-decoration:none;
-//		font-family:'san_francisco_textsemibold';
-		color:#424242;
+		//		font-family:'san_francisco_textsemibold';
+		color:$grey;
 
 		&.is-active {
 			background-color:$active;

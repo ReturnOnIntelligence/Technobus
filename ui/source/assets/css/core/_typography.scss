@@ -31,13 +31,39 @@
 }
 
 body {
-	background:$white;
-	font:100% 'san_francisco_textregular', Arial,Helvetica,sans-serif;
-	color:#4A4A4A;
+	background:$grey-light;
+	font:87.5% 'san_francisco_textregular', Arial,Helvetica,sans-serif;
+	color:$grey;
 }
 
-// a:hover {text-decoration:none;}
-a {text-decoration:none;}
-a:visited {color:#7F42BD;}
-a:hover {color:#f00;}
-a:active {color:#000;}
+// Links
+a {
+	text-decoration:none;
+	color:$active;
+}
+
+a:visited {color:$active;}
+a:hover {color:$active;}
+a:active {color:$active;}
+
+// Headers
+h3 {
+	margin:rem(0 0 5);
+	line-height:rem(26);
+	font-size:rem(17);
+	font-weight:100;
+	color:$grey;
+}
+
+h4 {
+	margin:rem(10 0);
+	line-height:rem(26);
+	font-size:rem(14);
+	font-weight:100;
+	color:$grey;
+}
+
+// Text
+.lead {
+	font-size:rem(17);
+}
