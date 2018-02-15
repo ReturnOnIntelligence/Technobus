@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 
 			// Deploy Settings
 			deploy : {
-				host : 'uxddmz01.internal.corp',
+				host : 'server',
 				port : 22,
 				dest : '/var/www/html/technobus/'
 			}
