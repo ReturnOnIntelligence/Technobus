@@ -27,17 +27,21 @@ function checkGeoLocation() {
                     $("#toTechn").addClass("is-active");
                     $("#toMetro").removeClass("is-active");
                     $("#timelineDirection").removeClass("tube");
-                    $("#scheduleList1").show();
-                    $("#scheduleList0").hide();
+                    $("#scheduleList1").hide();
+                    $("#scheduleList0").show();
                 }
-                if(currentTableId === 0){
-                    $('#timelineDirection').animate({scrollTop: $("#scheduleList0 li.next").offset().top - $("#scheduleList0").offset().top - 60});
+                if (currentTableId === 0) {
+                    if($("#scheduleList0 li.next").length > 0){
+                        $('#timelineDirection').animate({scrollTop: $("#scheduleList0 li.next").offset().top - $("#scheduleList0").offset().top - 60});
+                    }
+
                 }
                 else {
-                    $('#timelineDirection').animate({scrollTop: $("#scheduleList1 li.next").offset().top - $("#scheduleList1").offset().top - 60});
+                    if($("#scheduleList1 li.next").length > 0){
+                        $('#timelineDirection').animate({scrollTop: $("#scheduleList1 li.next").offset().top - $("#scheduleList1").offset().top - 60});
+                    }
                 }
             }
-
         );
     }
     else {
