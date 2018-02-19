@@ -4,34 +4,41 @@
     <title>Расписание автобусов</title>
     <meta charset="utf-8">
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
+    <script type="text/javascript">
         (function (d, w, c) {
-            (w[c] = w[c] || []).push(function() {
+            (w[c] = w[c] || []).push(function () {
                 try {
                     w.yaCounter47713888 = new Ya.Metrika({
-                        id:47713888,
-                        clickmap:true,
-                        trackLinks:true,
-                        accurateTrackBounce:true,
-                        webvisor:true,
-                        trackHash:true
+                        id: 47713888,
+                        clickmap: true,
+                        trackLinks: true,
+                        accurateTrackBounce: true,
+                        webvisor: true,
+                        trackHash: true
                     });
-                } catch(e) { }
+                } catch (e) {
+                }
             });
 
             var n = d.getElementsByTagName("script")[0],
                 s = d.createElement("script"),
-                f = function () { n.parentNode.insertBefore(s, n); };
+                f = function () {
+                    n.parentNode.insertBefore(s, n);
+                };
             s.type = "text/javascript";
             s.async = true;
             s.src = "https://mc.yandex.ru/metrika/watch.js";
 
             if (w.opera == "[object Opera]") {
                 d.addEventListener("DOMContentLoaded", f, false);
-            } else { f(); }
+            } else {
+                f();
+            }
         })(document, window, "yandex_metrika_callbacks");
     </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/47713888" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/47713888" style="position:absolute; left:-9999px;" alt=""/></div>
+    </noscript>
     <!-- /Yandex.Metrika counter -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
     <link rel="stylesheet" href="assets/css/style.min.css" media="all">
@@ -126,7 +133,7 @@ window.onload = function () {
     <section class="timeline-wrap" id="timelineDirection">
 
         <ul class="timeline" id="scheduleList0"></ul>
-        <ul class="timeline" id="scheduleList1" hidden="hidden"> </ul>
+        <ul class="timeline" id="scheduleList1" hidden="hidden"></ul>
 
         <!-- COPYRIGHT - BEGINS -->
         <div class="copyright">
@@ -147,16 +154,33 @@ window.onload = function () {
 
         </div>
         <div class="bus-stop-description">
-            <a href="javascript:;" class="map-link">Посмотреть на Карте</a>
+            <a href="javascript:;" class="map-link map-link-metro">Посмотреть на Карте</a>
 
             <div class="bus-stop-content">
                 <h3>Посадка от ст. м. "Московская"</h3>
                 ост. "ул. Авиационная"
 
                 <ul class="location-info">
-                    <li><svg class="icon-bus"><use xlink:href="assets/svg/defs.svg#icon-bus"></use></svg> <svg class="icon-logo-technopolis"><use xlink:href="assets/svg/defs.svg#icon-logo-technopolis"></use></svg> </li>
-                    <li><svg class="icon-location"><use xlink:href="assets/svg/defs.svg#icon-location"></use></svg> Московский пр. 189</li>
-                    <li><svg class="icon-phone"><use xlink:href="assets/svg/defs.svg#icon-phone"></use></svg> +7 812 318 0055</li>
+                    <li>
+                        <svg class="icon-bus">
+                            <use xlink:href="assets/svg/defs.svg#icon-bus"></use>
+                        </svg>
+                        <svg class="icon-logo-technopolis">
+                            <use xlink:href="assets/svg/defs.svg#icon-logo-technopolis"></use>
+                        </svg>
+                    </li>
+                    <li>
+                        <svg class="icon-location">
+                            <use xlink:href="assets/svg/defs.svg#icon-location"></use>
+                        </svg>
+                        <a href="javascript:;" class="map-link-metro">Московский пр. 189</a>
+                    </li>
+                    <li>
+                        <svg class="icon-phone">
+                            <use xlink:href="assets/svg/defs.svg#icon-phone"></use>
+                        </svg>
+                        <a href="javascript:;" class="mobile-number55">+7 812 318 0055</a>
+                    </li>
                 </ul>
             </div>
 
@@ -168,16 +192,33 @@ window.onload = function () {
 
         </div>
         <div class="bus-stop-description">
-            <a href="javascript:;" class="map-link">Посмотреть на Карте</a>
+            <a href="javascript:" class="map-link map-link-tech">Посмотреть на Карте</a>
 
             <div class="bus-stop-content">
                 <h3>Посадка от БЦ "Технополис"</h3>
                 У Выхода №2 напротив кафе "LAKKA"
 
                 <ul class="location-info">
-                    <li><svg class="icon-bus"><use xlink:href="assets/svg/defs.svg#icon-bus"></use></svg> <svg class="icon-logo-technopolis"><use xlink:href="assets/svg/defs.svg#icon-logo-technopolis"></use></svg> </li>
-                    <li><svg class="icon-location"><use xlink:href="assets/svg/defs.svg#icon-location"></use></svg> Московский пр. 189</li>
-                    <li><svg class="icon-phone"><use xlink:href="assets/svg/defs.svg#icon-phone"></use></svg> +7 812 318 0055</li>
+                    <li>
+                        <svg class="icon-bus">
+                            <use xlink:href="assets/svg/defs.svg#icon-bus"></use>
+                        </svg>
+                        <svg class="icon-logo-technopolis">
+                            <use xlink:href="assets/svg/defs.svg#icon-logo-technopolis"></use>
+                        </svg>
+                    </li>
+                    <li>
+                        <svg class="icon-location">
+                            <use xlink:href="assets/svg/defs.svg#icon-location"></use>
+                        </svg>
+                        <a href="javascript:;" class="map-link-tech">Пулковское ш. 40/4</a>
+                    </li>
+                    <li>
+                        <svg class="icon-phone">
+                            <use xlink:href="assets/svg/defs.svg#icon-phone"></use>
+                        </svg>
+                        <a href="javascript:;" class="mobile-number55">+7 812 318 0055</a>
+                    </li>
                 </ul>
             </div>
 
@@ -188,7 +229,11 @@ window.onload = function () {
     <!-- THIRD_PAGE - BEGINS -->
     <section class="map-wrap" id="first_alt_ways">
         <h3>Общественным Транспортом:</h3>
-        От Остановки  <a href="javascript:"><svg class="icon-location"><use xlink:href="assets/svg/defs.svg#icon-location"></use></svg>  ст. м. "Московская"</a>
+        От Остановки <a href="javascript:;">
+        <svg class="icon-location">
+            <use xlink:href="assets/svg/defs.svg#icon-location"></use>
+        </svg>
+        ст. м. "Московская"</a>
 
         <h4>Маршрутки:</h4>
 
@@ -214,15 +259,28 @@ window.onload = function () {
         <h3>БЦ "Технополис":</h3>
 
         <ul class="location-info">
-            <li><a href="yandexmaps://maps.yandex.ru/?ll=37.62,55.75&z=12"><svg class="icon-location"><use xlink:href="assets/svg/defs.svg#icon-location"></use></svg> Пулковское ш. 40/4</a></li>
-            <li><svg class="icon-phone"><use xlink:href="assets/svg/defs.svg#icon-phone"></use></svg> +7 812 318 0055</li>
+            <li><a href="yandexmaps://maps.yandex.ru/?ll=37.62,55.75&z=12">
+                <svg class="icon-location">
+                    <use xlink:href="assets/svg/defs.svg#icon-location"></use>
+                </svg>
+                Пулковское ш. 40/4</a></li>
+            <li>
+                <svg class="icon-phone">
+                    <use xlink:href="assets/svg/defs.svg#icon-phone"></use>
+                </svg>
+                <a href="javascript:;" class="mobile-number55">+7 812 318 0055</a>
+            </li>
         </ul>
 
     </section>
 
-    <section  class="map-wrap" id="second_alt_ways">
+    <section class="map-wrap" id="second_alt_ways">
         <h3>Общественным Транспортом:</h3>
-        От Остановки  <a href="yandexmaps://maps.yandex.ru/?ll=37.62,55.75&z=12"><svg class="icon-location"><use xlink:href="assets/svg/defs.svg#icon-location"></use></svg> "ТЦ Metro"</a>
+        От Остановки <a href="yandexmaps://maps.yandex.ru/?ll=37.62,55.75&z=12">
+        <svg class="icon-location">
+            <use xlink:href="assets/svg/defs.svg#icon-location"></use>
+        </svg>
+        "ТЦ Metro"</a>
 
         <h4>Маршрутки:</h4>
 
@@ -268,7 +326,6 @@ window.onload = function () {
     </footer>
 
 </div>
-
 
 
 </body>

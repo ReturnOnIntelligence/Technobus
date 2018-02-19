@@ -145,7 +145,7 @@ $(function googleApi() {
                     // $("#scheduleList0").html(infoLi);
                     // $("#scheduleList1").html(infoLi);
                     //timetableRowHtmlString = infoLi;
-                    shadowAll = "shadowAll";
+                    shadowAll = "shadow";
                 }
 
 
