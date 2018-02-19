@@ -1,0 +1,29 @@
+// ------------------------------------------------------------------------- //
+// Main Navigation
+// ------------------------------------------------------------------------- //
+.nav-main {
+	@extend %clearfix;
+	@include flexbox();
+
+	position:relative;
+	background:$white;
+	box-shadow:0 2px 4px 0 rgba($onyx-dark, .1);
+
+	a {
+		@include flexbox();
+		@include align-items(center);
+		@include justify-content(center);
+
+		width:50%;
+		min-height:rem(48);
+		text-align:center;
+		text-decoration:none;
+		font-family:'san_francisco_textsemibold';
+		color:$onyx-medium;
+
+		&.is-active {
+			background-color:$active;
+			color:$white;
+		}
+	}
+}

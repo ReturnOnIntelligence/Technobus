@@ -1,7 +1,6 @@
 // ------------------------------------------------------------------------- //
 // Core
 // ------------------------------------------------------------------------- //
-
 @import	'core/variables';
 @import	'core/functions';
 @import	'core/mixins';
@@ -11,16 +10,14 @@
 // ------------------------------------------------------------------------- //
 // Layout
 // ------------------------------------------------------------------------- //
-
-@import	'layout/layout';
 @import	'layout/icons';
+@import	'layout/layout';
+@import	'layout/nav-extra';
+@import	'layout/nav-main';
 
 // ------------------------------------------------------------------------- //
 // Components
 // ------------------------------------------------------------------------- //
-
 @import	'partial/bus-stop';
 @import	'partial/map';
-@import	'partial/nav-extra';
-@import	'partial/nav-main';
 @import	'partial/timeline';

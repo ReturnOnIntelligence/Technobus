@@ -15,7 +15,7 @@ body {
 
 .copyright {
 	padding:rem(10) 0;
-	background:#F2F7FB;
+	background:$blue-light;
 
 	p {
 		margin-left:rem(20);
@@ -23,7 +23,7 @@ body {
 	}
 
 	.tube & {
-		background:#F5F5F5;
+		background:$onyx-light;
 	}
 }
 

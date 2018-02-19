@@ -1,0 +1,9 @@
+{
+	"version": 3,
+	"file": "ie.min.css",
+	"sources": [
+		"../../../source/assets/css/ie.scss"
+	],
+	"names": [],
+	"mappings": ""
+}

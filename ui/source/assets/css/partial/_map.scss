@@ -7,6 +7,10 @@
 	flex:1 1 auto;
 	overflow-y:scroll;
 	-webkit-overflow-scrolling:touch;
+
+	&.tube {
+		background:$blue-light;
+	}
 }
 
 .map {
@@ -54,14 +58,15 @@
 
 
 		&.is-disabled {
-			color:$grey;
+			color:$onyx-medium;
 
 			&::before,
-			&::after {background-color:#999;}
+			&::after {background-color:$onyx-dark-50;}
 		}
 
 		&.final-stop {
 			&::before {
+				top:5px;
 				width:0;
 				height:0;
 				border-top:12px solid $active;

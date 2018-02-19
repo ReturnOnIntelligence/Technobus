@@ -1,6 +1,7 @@
 // ------------------------------------------------------------------------- //
-// timeline
+// Timeline
 // ------------------------------------------------------------------------- //
+
 .timeline-wrap {
 	min-height:0;
 	flex:1 1 auto;
@@ -15,8 +16,8 @@
 
 		padding:0 rem(25);
 		min-height:rem(60);
-		background:$grey-light;
-		box-shadow:inset 0 -1px 0 0 rgba(153, 153, 153, .25);
+		background:$onyx-light;
+		box-shadow:inset 0 -1px 0 0 rgba($onyx-dark-50, .25);
 	}
 
 	.time {
@@ -42,41 +43,39 @@
 		li {
 			@include flex-direction(row-reverse);
 			@include justify-content(space-between);
-			background:#F2F7FB;
+			background:$blue-light;
 			text-align:right;
+
+			&.break {
+				@include flex-direction(row);
+			}
 		}
 
 		.time-info {
 			padding:0 rem(20) 0 0;
 		}
-
-		li.break {
-			@include flex-direction(row);
-		}
 	}
 
 	// Statuses
 	li.success {
-		background:#1AAE90;
+		background:$success;
 		color:$white;
 	}
 
 	li.warning {
-		background:#EDC227;
+		background:$warning;
 	}
 
 	li.alert {
-		background:#DE4939;
+		background:$alert;
 		color:$white;
 	}
 
 	li.break {
-		background:$grey;
+		background:$onyx-medium;
 		color:$white;
 
-		a {
-			color:$white;
-		}
+		a {color:$white;}
 
 		.time-info {
 			padding:0;
@@ -89,11 +88,10 @@
 	}
 
 	li.disabled {
-		color:#9B9B9B;
+		color:$onyx-dark-50;
 	}
 
 	li.special-offer {
-		color:#DE4939;
+		color:$alert;
 	}
-
 }
