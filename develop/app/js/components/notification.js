@@ -28,9 +28,7 @@ $(function () {
             $("#output_notification").text(notification[1]);
             $('#notification').show();
         }
-
-
     }
-
-    getNotification();
+    $('#notification').hide();
+    //getNotification();
 });

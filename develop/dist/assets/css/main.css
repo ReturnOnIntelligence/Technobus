@@ -54,13 +54,22 @@ li.shadow {
     background: #F5F5F5;
     color: rgba(74, 74, 74, 0.36)
 }
+li.shadowAll {
+    background: #F5F5F5;
+    color: rgba(74, 74, 74, 0.36)
+}
 
 li.redline {
     background: #F5F5F5;
     color: rgb(232, 5, 10)
 }
 
-/*hot-fix*/
-.bus-stop-wrap {
-    overflow-y: scroll;
+@media screen and (min-width: 1100px){
+    body{
+        width: 50%;
+        margin: 0 auto;
+    }
+    #notification{
+        width: 50%;
+    }
 }

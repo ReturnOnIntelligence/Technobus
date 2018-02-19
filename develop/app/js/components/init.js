@@ -10,9 +10,11 @@ $(function () {
     //первичное отображение таблицы, в зависимости от заданной стартовой
     if(currentTableId === 0){
         $("#scheduleList1").hide();
+        $("#scheduleList0").show();
     }
     else {
         $("#scheduleList0").hide();
+        $("#scheduleList1").show();
     }
 
     // let listTo = $("#scheduleList0").get(0).children;
@@ -32,10 +34,14 @@ $(function () {
 
 
     if(currentTableId === 0){
-        $('#timelineDirection').animate({scrollTop: $("#scheduleList0 li.next").offset().top - $("#scheduleList0").offset().top - 60});
+        if($("#scheduleList0 li.next").length > 0){
+            $('#timelineDirection').animate({scrollTop: $("#scheduleList0 li.next").offset().top - $("#scheduleList0").offset().top - 60});
+        }
     }
     else {
-        $('#timelineDirection').animate({scrollTop: $("#scheduleList1 li.next").offset().top - $("#scheduleList1").offset().top - 60});
+        if($("#scheduleList1 li.next").length > 0){
+            $('#timelineDirection').animate({scrollTop: $("#scheduleList1 li.next").offset().top - $("#scheduleList1").offset().top - 60});
+        }
     }
 
 });
