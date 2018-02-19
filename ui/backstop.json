@@ -30,7 +30,7 @@
 		},
 		{
 			"label": "TUBE",
-			"url": "prototype-html/tube.html",
+			"url": "prototype-html/index-tube.html",
 			"hideSelectors": [],
 			"removeSelectors": [],
 			"selectors": [".rt-body"],
