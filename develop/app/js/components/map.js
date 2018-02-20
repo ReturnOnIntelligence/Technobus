@@ -107,16 +107,22 @@ const places = {
 $(function () {
 
     function showMap() {
-        $('#first_scheme').find('#map0').html('<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A55e0e63b17daab5b3dcd5b216d61836c4e09fd41632fa603e14699952d0c4999&amp;source=constructor" width="100%" height="300" frameborder="0"></iframe>');
-        $('#second_scheme').find('#map1').html('<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A012d53561df0d3b05b5008c893055936da12d10e84e16681cf71165ceaa517e7&amp;source=constructor" width="100%" height="300" frameborder="0"></iframe>');
+        if (navigator.onLine) {
+            $('#first_scheme').find('#map0').html('<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A55e0e63b17daab5b3dcd5b216d61836c4e09fd41632fa603e14699952d0c4999&amp;source=constructor" width="100%" height="300" frameborder="0"></iframe>');
+            $('#second_scheme').find('#map1').html('<iframe src="https://yandex.ru/map-widget/v1/?um=constructor%3A012d53561df0d3b05b5008c893055936da12d10e84e16681cf71165ceaa517e7&amp;source=constructor" width="100%" height="300" frameborder="0"></iframe>');
+        }
+        else {
+
+        }
     }
+
     showMap();
 
     $('.map-link-metro').click(function () {
-        window.open('http://maps.apple.com/?q='+places.metro[0]+','+places.metro[1]);
+        window.open('http://maps.apple.com/?q=' + places.metro[0] + ',' + places.metro[1]);
     });
 
     $('.map-link-tech').click(function () {
-        window.open('http://maps.apple.com/?q='+places.technopolis[0]+','+places.technopolis[1]);
+        window.open('http://maps.apple.com/?q=' + places.technopolis[0] + ',' + places.technopolis[1]);
     });
 });

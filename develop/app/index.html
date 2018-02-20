@@ -111,23 +111,18 @@ window.onload = function () {
         <!-- MAIN NAVIGATION - ENDS -->
     </header>
 
-    <!-- NOTIFICATION - BEGINS-->
-    <div id="notification">
-        <!--<img class="close" src="assets/images/cross.png" alt="Закрыть">-->
-        <div id="left_block"></div>
-        <div id="center_block">
-            <label for="output_notification" id="title_notification"></label>
-            <p id="output_notification"></p>
-        </div>
+    <!-- MESSAGE - BEGINS -->
+    <div class="message">
         <div class="close">
-            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" x="0px" y="0px" width="25px" height="25px" viewBox="0 0 50 50" enable-background="new 0 0 50 50" xml:space="preserve">
-                <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="7" y1="7" x2="43" y2="43"/>
-                <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="43" y1="7" x2="7" y2="43"/>
+            <svg class="icon-close">
+                <use xlink:href="assets/svg/defs.svg#icon-close"></use>
             </svg>
         </div>
-
+        <div class="content" id="output_notification">
+        </div>
     </div>
-    <!-- NOTIFICATION - ENDS-->
+    <!-- MESSAGE - ENDS -->
+
 
     <!-- TIMELINE - BEGINS -->
     <section class="timeline-wrap" id="timelineDirection">
