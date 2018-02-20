@@ -6,6 +6,7 @@
 	top:rem(48);
 	width:100%;
 	background:$warning;
+	z-index:9999;
 
 	.content {
 		padding:rem(15 45 15 15);

@@ -42,3 +42,6 @@ $onyx-dark-14: scale-color($onyx-dark, $lightness: 86%); // #DBDBDB
 $onyx-dark-10: scale-color($onyx-dark, $lightness: 90%); // #E6E6E6
 $onyx-dark-6: scale-color($onyx-dark, $lightness: 94%); // #F0F0F0
 $onyx-dark-2: scale-color($onyx-dark, $lightness: 98%); // #FAFAFA
+
+// Media Query Ranges
+$desktop: 'only screen and (min-width: 768px)';
