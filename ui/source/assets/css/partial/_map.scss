@@ -64,7 +64,7 @@
 			&::after {background-color:$onyx-dark-50;}
 		}
 
-		&.final-stop {
+		&.final-stop-technopolis {
 			&::before {
 				top:5px;
 				width:0;
@@ -79,5 +79,18 @@
 			&::after {display:none;}
 		}
 
+		&.begin-stop-technopolis::after {display:none;}
+
+		&.final-stop-tube {
+			&::before {
+				width:0;
+				height:0;
+				border-right:6px solid transparent;
+				border-bottom:12px solid $active;
+				border-left:6px solid transparent;
+				border-radius:0;
+				background-color:transparent;
+			}
+		}
 	}
 }
