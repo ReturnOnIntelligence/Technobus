@@ -20,7 +20,7 @@
 	"scenarios": [
 		{
 			"label": "TECHNOPOLIS",
-			"url": "prototype-html/index.html",
+			"url": "prototype-html/index-technopolis.html",
 			"hideSelectors": [],
 			"removeSelectors": [],
 			"selectors": [".rt-body"],
