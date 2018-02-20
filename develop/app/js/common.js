@@ -13,6 +13,8 @@ var  infoList = [];
 var sortedTimeLists = { 'to' : [], 'from' : []};
 var notificationNumber = 0;
 
+var isLoadedMaps = false;
+
 //Параметр для включения геолокации
 const isGeoLocationOn = true;
 
@@ -29,6 +31,15 @@ const rangeFrom = "A:H";
 
 const Info = "Info";
 const InfoRange = "A:B";
+
+//global application time
+function getCurrentTime() {
+    let now = new Date();
+    // now.setHours(10);
+    // now.setMinutes(10);
+    return now;
+}
+
 /**
  * Установка языка сайта
  * @param {string} lang Пользовательская локаль

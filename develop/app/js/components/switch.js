@@ -49,6 +49,13 @@
 //     }
 // });
 
+function checkMapLoad() {
+    if(currentWindow === 2 && !isLoadedMaps){
+        showMap();
+        isLoadedMaps = true;
+    }
+}
+
 $(function () {
 
     $('#First_page').click(function () {
@@ -63,7 +70,7 @@ $(function () {
 
     $('#Second_page').click(function () {
         currentWindow = 2;
-        //showMap();
+        checkMapLoad();
     });
 
     $('#Third_page').click(function () {
@@ -84,11 +91,6 @@ $(function () {
             $("#scheduleList1").hide();
             $("#scheduleList0").show();
 
-            // let sl = document.querySelector("#scheduleList0 .succes");
-            // if (!sl) {
-            //     sl = document.querySelector("#scheduleList0 .alert");
-            //     sl = document.querySelector("#scheduleList0 .next");
-            // }
 
             if ($("#scheduleList0").find("li.next").length > 0) {
                 $('#timelineDirection').animate({scrollTop: $("#scheduleList0 li.next").offset().top - $("#scheduleList0").offset().top - 60});

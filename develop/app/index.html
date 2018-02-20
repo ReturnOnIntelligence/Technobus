@@ -59,49 +59,53 @@
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU" type="text/javascript"></script>
 </head>
 <body class="rt-body">
-<!-- HelloPreload  -->
-<style type="text/css">#hellopreloader > p {
-    display: none;
-}
-
-#hellopreloader_preload {
-    display: block;
-    position: fixed;
-    z-index: 99999;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    min-width: 1000px;
-    background: #000000 url(http://hello-site.ru//main/images/preloads/oval.svg) center center no-repeat;
-    background-size: 80px;
-}</style>
-
-<div id="hellopreloader">
-    <div id="hellopreloader_preload"></div>
-    <p></p></div>
-<script type="text/javascript">var hellopreloader = document.getElementById("hellopreloader_preload");
-
-function fadeOutnojquery(el) {
-    el.style.opacity = 1;
-    var interhellopreloader = setInterval(function () {
-        el.style.opacity = el.style.opacity - 0.05;
-        if (el.style.opacity <= 0.05) {
-            clearInterval(interhellopreloader);
-            hellopreloader.style.display = "none";
-        }
-    }, 16);
-}
-
-window.onload = function () {
-    setTimeout(function () {
-        fadeOutnojquery(hellopreloader);
-    }, 0);
-};
-</script>
-<!-- HelloPreload / -->
 
 <div class="page-wrap">
+    <!-- SPLASH SCREEN - BEGINS -->
+    <div class="splash js-splash">
+
+        <div class="app-info">
+            <svg class="icon-logo-app"><use xlink:href="assets/svg/defs.svg#icon-logo-app"></use></svg>
+            <svg class="icon-logo-technopolis-white"><use xlink:href="assets/svg/defs.svg#icon-logo-technopolis-white"></use></svg>
+            <h1>Shuttle Bus</h1>
+        </div>
+
+        <div class="copyright">
+            <svg class="icon-logo-roi-white"><use xlink:href="assets/svg/defs.svg#icon-logo-roi-white"></use></svg>
+        </div>
+
+    </div>
+    <!-- SPLASH SCREEN - ENDS -->
+    <!-- WEEKEND - BEGINS -->
+    <div class="weekend-splash js-weekend-splash">
+        <div class="weekend-info">
+            <div class="icon-bus-wrap">
+                <svg class="icon-bus-sleep"><use xlink:href="assets/svg/defs.svg#icon-bus-sleep"></use></svg>
+            </div>
+
+            <div class="weekend-actions">
+                <a href="javascript:;" class="js-open-alt-ways">
+                    В выходные автобусов нет
+                    <span class="info">Всегда есть варианты добраться</span>
+                </a>
+                <a href="javascript:;" class="js-close-weekend-splash">Показать расписание</a>
+            </div>
+        </div>
+
+        <div class="contact-info">
+
+            <!-- TECHNOPOLIS CONTACTS - BEGINS -->
+            <h3>БЦ "Технополис":</h3>
+            <ul class="location-info">
+                <li><a href="javascript:;"><svg class="icon-location"><use xlink:href="assets/svg/defs.svg#icon-location"></use></svg> Пулковское ш. 40/4</a></li>
+                <li><svg class="icon-phone"><use xlink:href="assets/svg/defs.svg#icon-phone"></use></svg> +7 812 318 0055</li>
+            </ul>
+            <!--TECHNOPOLIS CONTACTS - ENDS -->
+
+        </div>
+    </div>
+    <!-- WEEKEND - ENDS -->
+
     <header>
         <!-- MAIN NAVIGATION - BEGINS -->
         <nav class="nav-main">
@@ -112,7 +116,7 @@ window.onload = function () {
     </header>
 
     <!-- MESSAGE - BEGINS -->
-    <div class="message">
+    <div class="message" id="notification">
         <div class="close">
             <svg class="icon-close">
                 <use xlink:href="assets/svg/defs.svg#icon-close"></use>
@@ -224,11 +228,7 @@ window.onload = function () {
     <!-- THIRD_PAGE - BEGINS -->
     <section class="map-wrap" id="first_alt_ways">
         <h3>Общественным Транспортом:</h3>
-        От Остановки <a href="javascript:;">
-        <svg class="icon-location">
-            <use xlink:href="assets/svg/defs.svg#icon-location"></use>
-        </svg>
-        ст. м. "Московская"</a>
+        От Остановки  <a href="javascript:;"><svg class="icon-location"><use xlink:href="assets/svg/defs.svg#icon-location"></use></svg>  ст. м. "Московская"</a>
 
         <h4>Маршрутки:</h4>
 
@@ -244,7 +244,7 @@ window.onload = function () {
             <li>ост. "ТЦ Metro"
                 <span class="note">пеш.переход через Пулковское ш.</span>
             </li>
-            <li class="final-stop">
+            <li class="final-stop-technopolis">
                 <span class="note">Пешком 10 мин на юг</span>
                 БЦ "Технополис"
             </li>
@@ -269,13 +269,10 @@ window.onload = function () {
 
     </section>
 
-    <section class="map-wrap" id="second_alt_ways">
+    <section class="map-wrap tube" id="second_alt_ways">
         <h3>Общественным Транспортом:</h3>
-        От Остановки <a href="yandexmaps://maps.yandex.ru/?ll=37.62,55.75&z=12">
-        <svg class="icon-location">
-            <use xlink:href="assets/svg/defs.svg#icon-location"></use>
-        </svg>
-        "ТЦ Metro"</a>
+        От Остановки  <a href="javascript:;"><svg class="icon-location">
+        <use xlink:href="assets/svg/defs.svg#icon-location"></use></svg> "ТЦ Metro"</a>
 
         <h4>Маршрутки:</h4>
 
@@ -286,11 +283,11 @@ window.onload = function () {
         <p class="lead">13, 13А, 39, 90, 150, 155, 187, 187А, 301</p>
 
         <ul class="map">
-            <li>ст. м. "Московская"</li>
+            <li class="final-stop-tube">ст. м. "Московская"</li>
             <li>ост. автобусов "ТЦ Metro"
                 <span class="note">пеш.переход через Пулковское ш.</span>
             </li>
-            <li class="final-stop">
+            <li class="begin-stop-technopolis">
                 <span class="note">Пешком 10 мин на юг</span>
                 БЦ "Технополис"
             </li>

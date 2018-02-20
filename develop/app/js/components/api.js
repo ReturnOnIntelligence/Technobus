@@ -38,7 +38,7 @@ $(function googleApi() {
                         //this.showTimetable(0);
                     }
                     try {
-                        this.showTimetable(0);
+                        this.showTable();
                     } catch (err) {
                         console.error("showTimetable: ", err);
                     }
@@ -83,8 +83,18 @@ $(function googleApi() {
                 this.tableViewer.cleanTableList();
                 this.saveToLocalStorage();
             }
+            showTable(){
+                let now = getCurrentTime();
 
-            showTimetable(id) {
+                console.log(now);
+                $('.js-weekend-splash').hide();
+                if(now.getDay() === 0 || now.getDay() === 6){
+                    $('.js-weekend-splash').show();
+                }
+                this.showTimetable();
+            }
+
+            showTimetable() {
                 this.tableViewer.addTableList(JSON.parse(localStorage.getItem(0)), 0);
                 this.tableViewer.addTableList(JSON.parse(localStorage.getItem(1)), 1);
                 //this.tableViewer.addTableList(JSON.parse(localStorage.getItem(id)), id);
@@ -106,17 +116,26 @@ $(function googleApi() {
                 let notifications = infoJSON.values;
                 notifications.shift();
                 infoList = notifications;
+                this.showNotification();
 
-                if (infoList.length === 0) {
-                    infoList = JSON.parse(localStorage.getItem('info')).values;
+            }
+
+            /**
+             * Отображает уведомление
+             */
+            showNotification(){
+                if (infoList.length === 0 && localStorage.getItem('info') != null) {
+                   // infoList = JSON.parse(localStorage.getItem('info')).values;
+                    infoList = ['', ''];
                 }
                 let notification = infoList[notificationNumber];
-                if(notification[0].length > 0 && notification[1].length > 0) {
-                    $("#title_notification").text(notification[0]);
+                if(notification[1].length + notification[0].length > 0 ) {
                     $("#output_notification").text(notification[1]);
                     $('#notification').show();
                 }
             }
+
+
 
             /**
              * Add table list in timetable
@@ -128,31 +147,10 @@ $(function googleApi() {
 
                 let timetableRowHtmlString = "";
 
-                let now = new Date();
-                // now.setDate("17/02/2018");
-                // console.log(now);
-                let infoLi = "";
-                let shadowAll = "";
-                if (now.getDay() === 0 || now.getDay() === 6) {
-                    infoLi = `<li class="next alert anotherVariants">
-                                                <div class="time"></div>
-                                                <div class="time-info">
-                                                    <div class="info">В выходные автобусов нет</div>
-                                                    <div class="desc">Воспользуйтесь общественным транспортом &#10095;</div>
-                                                </div>
-                                                 </li>`;
-                    //$(".copyright").css("bottom", "50px");
-                    // $("#scheduleList0").html(infoLi);
-                    // $("#scheduleList1").html(infoLi);
-                    //timetableRowHtmlString = infoLi;
-                    shadowAll = "shadow";
-                }
-
-
                 let timetable = timetableJSON.values;
                 let timeSort = {};
                 timetable.shift();
-                test_time = timetable[0][0];
+
                 timetable.forEach(function (mins, i) {
                     let [hour, min] = mins[0].split(':');
                     mins.shift();
@@ -179,33 +177,28 @@ $(function googleApi() {
                 else
                     sortedTimeLists.from = timeSort;
 
-                let counter = 0;
                 for (hour in timeSort) {
                     for (index in timeSort[hour]) {
                         if (hour !== "" && timeSort[hour][index].min !== "") {
-                            if(counter === 4){
-                                timetableRowHtmlString += infoLi;
-                            }
-                            counter++;
                             let weekCount = 0;
                             let weekSelect = timeSort[hour][index].mins;
                             for (let i = 0; i < weekSelect.length; i++) {
                                 if (weekSelect[i].length > 0)
                                     weekCount++;
                             }
-                            let shadowClass = "";
+                            let disableClass = "";
                             let specialInfo = "";
                             if (weekCount < 5) {
-                                let now = new Date();
+                                let now = getCurrentTime();
                                 let weekDayNumber = now.getDay();
 
                                 let itIsSuperLongIteratorButInVeryUseful = (weekDayNumber + 6) % 7;
                                 if (weekSelect[itIsSuperLongIteratorButInVeryUseful] && weekSelect[itIsSuperLongIteratorButInVeryUseful].length > 0) {
-                                    shadowClass = 'redline';
+                                    disableClass = 'redline';
                                     specialInfo = "Только сегодня";
                                 }
                                 else {
-                                    shadowClass = "shadow";
+                                    disableClass = "disabled";
                                     specialInfo = "В ";
                                     for (let i = 0; i < weekSelect.length; i++) {
                                         if (weekSelect[i].length > 0) {
@@ -214,11 +207,11 @@ $(function googleApi() {
                                     }
                                 }
                             }
-                            timetableRowHtmlString += `<li class="${shadowClass} ${shadowAll}">
+                            timetableRowHtmlString += `<li class="${disableClass}">
                                                 <div class="time">${hour}:${timeSort[hour][index].min}</div>
                                                 <div class="time-info">
-                                                    <div class="info"></div>
-                                                    <div class="desc">${specialInfo}</div>
+                                                    <div class="info">${specialInfo}</div>
+                                                    <div class="desc"></div>
                                                 </div>
                                                  </li>`;
                         }
