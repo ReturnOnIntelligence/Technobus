@@ -5,10 +5,35 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.myapplication.MainActivity">
-    
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="384dp"
+        android:layout_height="567dp"
+        android:layout_x="60dp"
+        android:layout_y="213dp"
+        android:background="#F5F5F5"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
+
+    <ImageView
+        android:id="@+id/iv"
+        android:layout_width="258dp"
+        android:layout_height="188dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="8dp"
+        android:src="@raw/bus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <WebView
+        android:id="@+id/wv"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/wv"/>
+        android:visibility="visible">
+
+    </WebView>
+
 
 </android.support.constraint.ConstraintLayout>
