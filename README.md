@@ -66,6 +66,36 @@ gulp build
 ```
 >По окончанию сборки, в директории /dist будут находиться собранный набор файлов
 
+# Инструкция по подключению Google Sheets к проекту.
+## Создание и настройка Google Sheets.
+>Войдите в совой аккаунт [Google](https://www.google.ru/), перейдите в [Google Drive](https://drive.google.com/drive/my-drive) -> Создать(Create) -> Google Таблицы(Google Sheets)
+
+- Название таблицы произвольное
+- Создать 3 листа(Sheet) с названиеями:
+To Technopolis
+From Technopolis
+Info
+- Первые две страницы содержат расписание в виде:
+Строка 1: Время	Понедельник	Вторник	Среда	Четверг	Пятница	Суббота	Воскресенье
+Столбец А: Время в формате HH:MM (к примеру 11:09, 09:01)
+Пересечение времени и дня недели: если * - есть рейс в этот день недели, пустая клетка - отсутствие
+- Третья страница (Info):
+Строка 1: Title	Info
+Столбцы A и B уведомления
+Пользователю отображается только уведомление из B1
+- Настройки доступа(Share) -> Просматривать могут все, у кого есть ссылка(доступ на чтение по ссылке)
+[Пример таблицы](https://docs.google.com/spreadsheets/d/10db0NtOmOC5TLw0WBuzFCGtoVa1GaFYDeUqIADh6p1E/edit#gid=0)
+## Включение Api, получение api key
+>Войдите в совой аккаунт [Google](https://www.google.ru/), перейти на [Google Api Console](https://console.developers.google.com/apis)
+- Включить Api и сервисы -> Google Sheets Api -> Включить
+- [Учетные данные(Credentials)](https://console.developers.google.com/apis/credentials) -> Создать учётные данные(Create credentials) -> Ключ API (Api key)
+- В таблице Ключи Api (Api keys) ищем ключ и в поле Ключ (Key) находим последовательность символов - api key
+## Установка параметров.
+>Открываем app/js/common.js
+- Копируем api_key из [Google Api Console](https://console.developers.google.com/apis) в переменную **key**
+- Из ссылки на Google Таблицу вытаскиваем **spreadsheetId** таблицы
+> docs.google.com/ spreadsheets / d / **spreadsheetId** /edit#gid=0
+- Копируем **spreadsheetId** в переменную **spreadsheetId**
 
 
 

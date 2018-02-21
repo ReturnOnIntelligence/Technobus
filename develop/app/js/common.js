@@ -1,5 +1,6 @@
-//Константы и глобальные переменные
-//
+/**
+Константы и глобальные переменные
+ **/
 const days = ['monday', 'tuesday', 'tednesday', 'thursday', 'friday', 'saturday','sunday'];
 const fullDays = ['fullMonday', 'fullTuesday', 'fullTednesday', 'fullThursday', 'fullFriday', 'fullSaturday','fullSunday'];
 const inWeekDays = ['Воскресенье', 'Понедельник', 'Вторник', 'Среду', 'Четверг', 'Пятницу', 'Субботу']
@@ -18,8 +19,9 @@ var isLoadedMaps = false;
 //Параметр для включения геолокации
 const isGeoLocationOn = true;
 
-
+//Api key from Google Api Console
 const key = "AIzaSyAl9aZAZCbOAYhUl0RH57S9cnAPMnG3LLs";
+//spreadsheetId идентификатор таблицы
 const spreadsheetId = "10db0NtOmOC5TLw0WBuzFCGtoVa1GaFYDeUqIADh6p1E";
 
 //Параметры для запросов

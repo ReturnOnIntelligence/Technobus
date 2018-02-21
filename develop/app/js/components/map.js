@@ -1,12 +1,13 @@
 /**
  * Модуль карты
  */
-
+//Координаты остановок
 const places = {
     metro: [59.854606, 30.320864],
     technopolis: [59.817998, 30.328237],
 };
 
+//Отображение карт
 function showMap() {
     if (navigator.onLine) {
         $('#cache-0map').hide();
@@ -20,10 +21,7 @@ function showMap() {
         $('#cache-1map').show();
     }
 }
-
 $(function () {
-
-
     $('.map-link-metro').click(function () {
         if (navigator.onLine) {
             window.open('http://maps.apple.com/?q=' + places.metro[0] + ',' + places.metro[1]);
