@@ -206,7 +206,7 @@ $(function googleApi() {
                                     }
                                 }
                             }
-                            timetableRowHtmlString += `<li class="${disableClass}">
+                            timetableRowHtmlString += `<li class="${disableClass} ">
                                                 <div class="time">${hour}:${timeSort[hour][index].min}</div>
                                                 <div class="time-info">
                                                     <div class="info">${specialInfo}</div>

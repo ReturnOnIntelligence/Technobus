@@ -108,10 +108,6 @@ $(function () {
         let divInfo = selected_item.children[1];
         let [h, m] = divTime.innerText.split(':');
 
-        // $("ul #scheduleList0 li .next").removeClass("success");
-        // $("ul #scheduleList0 li .next").removeClass("alert");
-        // $("ul #scheduleList0 li .next").removeClass("next");
-
 
         let hourDiff = Math.floor(minDiffFromTime / 60);
         let minutsDiff = minDiffFromTime % 60;
@@ -306,10 +302,8 @@ $(function () {
             $(selected_item).addClass("anotherVariants");
         }
 
-
         addBreaks(listTo);
         addBreaks(listFrom);
-
 
         $('li.break.is-active').click(function () {
             $('#Third_page').trigger('click');

@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
     gutil = require('gulp-util'),
-    //sass = require('gulp-sass'),
+    sass = require('gulp-sass'),
     browserSync = require('browser-sync'),
     concat = require('gulp-concat'),
     uglify = require('gulp-uglify'),
@@ -40,7 +40,7 @@ gulp.task("common-js", function () {
 gulp.task('js', ['common-js'], function () {
     return gulp.src([
         'app/libs/jquery/dist/jquery.min.js',
-        'app/libs/bootstrap/js/bootstrap.min.js',
+        // 'app/libs/bootstrap/js/bootstrap.min.js',
         'app/js/common.min.js', // Всегда в конце
     ])
         .pipe(concat('scripts.min.js'))
@@ -60,7 +60,19 @@ gulp.task('browser-sync', function () {
     });
 });
 
-gulp.task('watch', ['js', 'browser-sync'], function () {
+gulp.task('sass', function() {
+    return gulp.src('app/sass/**/*.sass')
+        .pipe(sass({outputStyle: 'expand'}).on("error", notify.onError()))
+        .pipe(rename({suffix: '.min', prefix : ''}))
+        .pipe(autoprefixer(['last 15 versions']))
+        //.pipe(cleanCSS()) // Опционально, закомментировать при отладке
+        .pipe(concat('sass.min.css'))
+        .pipe(gulp.dest('app/assets/css'))
+        .pipe(browserSync.reload({stream: true}));
+});
+
+gulp.task('watch', ['sass', 'js', 'browser-sync'], function () {
+    gulp.watch('app/sass/**/*.sass', ['sass']);
     gulp.watch('app/css/assets/*.css', browserSync.reload);
     gulp.watch(['libs/**/*.js', 'app/js/common.js', 'app/js/components/*.js'], ['js']);
     gulp.watch('app/*.html', browserSync.reload);
@@ -72,7 +84,7 @@ gulp.task('imagemin', function () {
         .pipe(gulp.dest('dist/img'));
 });
 
-gulp.task('build', ['removedist', 'imagemin', 'js'], function () {
+gulp.task('build', ['removedist', 'imagemin','sass', 'js'], function () {
 
     var buildFiles = gulp.src([
         'app/*.html',
