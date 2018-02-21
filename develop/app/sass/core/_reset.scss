@@ -1,0 +1,41 @@
+// ------------------------------------------------------------------------- //
+// Reset
+// ------------------------------------------------------------------------- //
+
+* {
+	margin:0;
+	padding:0;
+	outline:none;
+	vertical-align:baseline;
+	box-sizing:border-box;
+}
+
+*:focus {outline:none;}
+ul {list-style:none;}
+
+label {cursor:pointer;}
+fieldset {border:solid 0 transparent;}
+img {border:none;}
+
+.offscreen {
+	position:absolute;
+	top:$offscreen-zindex;
+	left:$offscreen-zindex;
+	z-index:99;
+}
+
+// =HTML5
+// ------------------------------------------------------------------------- //
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+	display:block;
+}

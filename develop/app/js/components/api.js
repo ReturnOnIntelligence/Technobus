@@ -4,6 +4,9 @@
 
 $(function googleApi() {
 
+        /**
+         * Класс содержащий информацию о google sheets и интерфейс для загрузки данных из неё
+         */
         class GoogleSpreadsheet {
             constructor(key, spreadsheetId) {
                 this.key = key;
@@ -16,7 +19,10 @@ $(function googleApi() {
             }
         }
 
-        class API {
+    /**
+     * Класс для
+     */
+    class API {
             constructor(tableViewer, googleSpreadsheet) {
                 this.tableViewer = tableViewer;
                 this.googleSpreadsheet = googleSpreadsheet;
@@ -83,11 +89,12 @@ $(function googleApi() {
                 this.tableViewer.cleanTableList();
                 this.saveToLocalStorage();
             }
-            showTable(){
+
+            showTable() {
                 let now = getCurrentTime();
 
                 console.log(now);
-                if(now.getDay() === 0 || now.getDay() === 6){
+                if (now.getDay() === 0 || now.getDay() === 6) {
                     $('.js-weekend-splash').show();
                 }
                 this.showTimetable();
@@ -122,18 +129,17 @@ $(function googleApi() {
             /**
              * Отображает уведомление
              */
-            showNotification(){
+            showNotification() {
                 if (infoList.length === 0 && localStorage.getItem('info') != null) {
-                   // infoList = JSON.parse(localStorage.getItem('info')).values;
+                    // infoList = JSON.parse(localStorage.getItem('info')).values;
                     infoList = ['', ''];
                 }
                 let notification = infoList[notificationNumber];
-                if(notification[1].length + notification[0].length > 0 ) {
+                if (notification[1].length + notification[0].length > 0) {
                     $("#output_notification").text(notification[1]);
                     $('#notification').show();
                 }
             }
-
 
 
             /**

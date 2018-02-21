@@ -1,0 +1,47 @@
+//
+// Table of Contents
+//
+
+// 1. Global
+// 2. Typography
+// 3. Colors
+// 4. Path to Images
+
+// 1. Global
+// z-index master list
+$offscreen-zindex: -9000px;
+
+//// 2. Typography
+
+// 3. Colors
+$white: #FFF;
+
+$primary: #006EAA;
+$active: #005CB9;
+$success: #1AAE90;
+$warning: #EDC227;
+$alert: #DE4939;
+
+$onyx-dark: #000;
+$onyx-medium: #4A4A4A;
+$onyx-bright: #808080;
+$onyx-light: #F5F5F5;
+
+$blue-light: #F2F7FB;
+
+
+// Helpers
+$onyx-dark-90: scale-color($onyx-dark, $lightness: 10%); // #1A1A1A
+$onyx-dark-80: scale-color($onyx-dark, $lightness: 20%); // #333333
+$onyx-dark-70: scale-color($onyx-dark, $lightness: 30%); // #4D4D4D
+$onyx-dark-60: scale-color($onyx-dark, $lightness: 40%); // #666666
+$onyx-dark-50: scale-color($onyx-dark, $lightness: 60%); // #999999
+$onyx-dark-30: scale-color($onyx-dark, $lightness: 70%); // #B3B3B3
+$onyx-dark-20: scale-color($onyx-dark, $lightness: 80%); // #CCCCCC
+$onyx-dark-14: scale-color($onyx-dark, $lightness: 86%); // #DBDBDB
+$onyx-dark-10: scale-color($onyx-dark, $lightness: 90%); // #E6E6E6
+$onyx-dark-6: scale-color($onyx-dark, $lightness: 94%); // #F0F0F0
+$onyx-dark-2: scale-color($onyx-dark, $lightness: 98%); // #FAFAFA
+
+// Media Query Ranges
+$desktop: 'only screen and (min-width: 768px)';

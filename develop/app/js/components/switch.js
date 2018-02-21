@@ -50,14 +50,12 @@
 // });
 
 function checkMapLoad() {
-    if(currentWindow === 2 && !isLoadedMaps){
+    if (currentWindow === 2 && !isLoadedMaps) {
         showMap();
-        isLoadedMaps = true;
     }
 }
 
 $(function () {
-
     $('#First_page').click(function () {
         currentWindow = 1;
         if (currentTableId === 0) {

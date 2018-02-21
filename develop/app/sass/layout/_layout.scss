@@ -1,0 +1,94 @@
+// ------------------------------------------------------------------------- //
+// Layout
+// ------------------------------------------------------------------------- //
+html,
+body {
+	height:100%;
+}
+
+.page-wrap {
+	position:relative;
+	display:flex;
+	width:100%;
+	height:100%;
+	background-color:$onyx-light;
+	flex-direction:column;
+}
+
+.copyright {
+	padding:rem(10) 0;
+	background:$blue-light;
+
+	p {
+		margin-left:rem(20);
+		font-size:rem(11);
+	}
+
+	.tube & {
+		background:$onyx-light;
+	}
+}
+
+
+.location-info {
+	li {
+		margin:rem(7 0 0);
+		color:$active;
+	}
+
+	[class*='icon-'] {
+		position:relative;
+		top:3px;
+		fill:$active;
+	}
+}
+
+
+@media #{$desktop} {
+	body {
+		background-image:url('../../assets/images/web-background.png');
+	}
+
+	.nav-main {
+		border-top-left-radius:15px;
+		border-top-right-radius:15px;
+
+		.is-active {
+			&:first-child {
+				border-top-left-radius:10px;
+			}
+
+			&:last-child {
+				border-top-right-radius:10px;
+			}
+		}
+	}
+
+	.nav-extra {
+		border-bottom-left-radius:15px;
+		border-bottom-right-radius:15px;
+	}
+
+	.page-wrap {
+		top:10vh;
+		margin:0 auto;
+		width:rem(375);
+		height:80vh;
+		border-radius:10px;
+		box-shadow:0 0 13px 0 rgba($onyx-dark, .5);
+
+		&::after {
+			content:'';
+			position:absolute;
+			top:-4px;
+			right:-4px;
+			bottom:-4px;
+			left:-4px;
+			border-radius:15px;
+			background-image:url('../../assets/images/web-frame.png');
+			background-repeat:no-repeat;
+			background-size:cover;
+			z-index:-1;
+		}
+	}
+}

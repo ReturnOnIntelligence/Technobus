@@ -1,0 +1,70 @@
+// ------------------------------------------------------------------------- //
+// Mixin
+// ------------------------------------------------------------------------- //
+@mixin icon-svg($icon-svg, $icon-color:false, $icon-size:false) {
+
+	@if $icon-color {
+		background-image:svg-url-color($icon-svg, '#000', $icon-color);
+	} @else {
+		background-image:svg-url($icon-svg);
+	}
+
+	@if $icon-size {
+		width:$icon-size;
+		height:$icon-size;
+	}
+}
+
+
+@mixin icon-kit ($icon-svg, $icon-color:false, $icon-size:16px) {
+	display:inline-block;
+	width:$icon-size;
+	height:$icon-size;
+	background-repeat:no-repeat;
+	background-size:contain;
+	font-style:normal;
+
+
+	@if $icon-color {
+		background-image:svg-url-color($icon-svg, '#000', $icon-color);
+	} @else {
+		background-image:svg-url($icon-svg);
+	}
+}
+
+$icon-arrow-right-svg:'<svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/2000/svg"><path fill="#000" d="M1171 960q0 13-10 23l-466 466q-10 10-23 10t-23-10l-50-50q-10-10-10-23t10-23l393-393-393-393q-10-10-10-23t10-23l50-50q10-10 23-10t23 10l466 466q10 10 10 23z"/></svg>';
+
+// ------------------------------------------------------------------------- //
+// Icons
+// ------------------------------------------------------------------------- //
+
+[class*='icon-'] {
+	width:16px;
+	height:16px;
+	fill:$onyx-medium;
+}
+
+.icon-logo-roi {
+	width:113px;
+	height:38px;
+}
+
+.icon-logo-roi-white {
+	width:116px;
+	height:45px;
+}
+
+.icon-logo-technopolis {
+	width:134px;
+	height:18px;
+}
+
+.icon-logo-technopolis-white {
+	width:235px;
+	height:25px;
+}
+
+.icon-logo-app {
+	width:48px;
+	height:57px;
+}

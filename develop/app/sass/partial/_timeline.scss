@@ -1,0 +1,99 @@
+// ------------------------------------------------------------------------- //
+// Timeline
+// ------------------------------------------------------------------------- //
+
+.timeline-wrap {
+	min-height:0;
+	flex:1 1 auto;
+	overflow-y:scroll;
+	-webkit-overflow-scrolling:touch;
+}
+
+.timeline {
+	li {
+		@include flexbox();
+		@include align-items(center);
+
+		padding:0 rem(25);
+		min-height:rem(60);
+		background:$onyx-light;
+		box-shadow:inset 0 -1px 0 0 rgba($onyx-dark-50, .25);
+	}
+
+	.time {
+		font-family:'san_francisco_textlight';
+		font-size:rem(32);
+	}
+
+	.time-info {
+		padding:0 0 0 rem(20);
+		text-align:left;
+
+		.info {
+			font-size:rem(17);
+		}
+
+		.desc {
+			font-size:rem(12);
+		}
+	}
+
+	// Tube modifications
+	.tube & {
+		li {
+			@include flex-direction(row-reverse);
+			@include justify-content(space-between);
+			background:$blue-light;
+			text-align:right;
+
+			&.break:not(.is-active) {
+				.time-info {
+					text-align:right;
+				}
+			}
+		}
+
+		.time-info {
+			padding:0 rem(20) 0 0;
+		}
+	}
+
+	// Statuses
+	li.success {
+		background:$success;
+		color:$white;
+	}
+
+	li.warning {
+		background:$warning;
+	}
+
+	li.alert {
+		background:$alert;
+		color:$white;
+	}
+
+	li.break {
+		color:$active;
+
+		.time-info {
+			padding:0;
+			width:100%;
+		}
+
+		&.is-active {
+			background:$onyx-medium;
+			color:$white;
+
+			a {color:$white;}
+		}
+	}
+
+	li.disabled {
+		color:$onyx-dark-50;
+	}
+
+	li.special-offer {
+		color:$alert;
+	}
+}

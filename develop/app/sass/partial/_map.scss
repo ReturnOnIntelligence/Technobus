@@ -1,0 +1,96 @@
+// ------------------------------------------------------------------------- //
+// Bus Stop
+// ------------------------------------------------------------------------- //
+.map-wrap {
+	padding:rem(20);
+	min-height:0;
+	flex:1 1 auto;
+	overflow-y:scroll;
+	-webkit-overflow-scrolling:touch;
+
+	&.tube {
+		background:$blue-light;
+	}
+}
+
+.map {
+	margin:rem(20 -20);
+	padding:rem(20);
+	background:$white;
+
+	li {
+		position:relative;
+		padding:rem(0 0 0 28);
+		min-height:rem(70);
+		line-height:rem(16);
+		font-weight:600;
+
+		.note {
+			display:block;
+			line-height:rem(20);
+			font-size:rem(12);
+			font-weight:normal;
+		}
+
+		&::before,
+		&::after {
+			content:'';
+			position:absolute;
+			display:block;
+			width:12px;
+			background-color:$active;
+		}
+
+		&::before {
+			top:2px;
+			left:0;
+			height:12px;
+			border-radius:50%;
+		}
+
+		&::after {
+			top:rem(24);
+			bottom:rem(8);
+			left:2px;
+			width:8px;
+			border-radius:10px;
+		}
+
+
+		&.is-disabled {
+			color:$onyx-medium;
+
+			&::before,
+			&::after {background-color:$onyx-dark-50;}
+		}
+
+		&.final-stop-technopolis {
+			&::before {
+				top:5px;
+				width:0;
+				height:0;
+				border-top:12px solid $active;
+				border-right:6px solid transparent;
+				border-left:6px solid transparent;
+				border-radius:0;
+				background-color:transparent;
+			}
+
+			&::after {display:none;}
+		}
+
+		&.begin-stop-technopolis::after {display:none;}
+
+		&.final-stop-tube {
+			&::before {
+				width:0;
+				height:0;
+				border-right:6px solid transparent;
+				border-bottom:12px solid $active;
+				border-left:6px solid transparent;
+				border-radius:0;
+				background-color:transparent;
+			}
+		}
+	}
+}

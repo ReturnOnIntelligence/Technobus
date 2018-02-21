@@ -1,0 +1,33 @@
+// ------------------------------------------------------------------------- //
+// Extra Navigation
+// ------------------------------------------------------------------------- //
+.nav-extra {
+	@extend %clearfix;
+	@include flexbox();
+	background:$white;
+
+	a {
+		@include flexbox();
+		@include align-items(center);
+		@include justify-content(center);
+
+		width:33%;
+		min-height:48px;
+		text-align:center;
+		text-decoration:none;
+		color:$onyx-medium;
+
+		[class*='icon-'] {
+			width:24px;
+			height:24px;
+
+			&.icon-bag {width:41px;}
+		}
+
+		&.is-active {
+			[class*='icon-'] {
+				fill:$active;
+			}
+		}
+	}
+}
