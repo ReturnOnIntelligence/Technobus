@@ -35,8 +35,8 @@ const InfoRange = "A:B";
 //global application time
 function getCurrentTime() {
     let now = new Date();
-    // now.setHours(14);
-    // now.setMinutes(15);
+    // now.setHours(12);
+    // now.setMinutes(22);
     return now;
 }
 
