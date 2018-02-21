@@ -35,27 +35,10 @@ const InfoRange = "A:B";
 //global application time
 function getCurrentTime() {
     let now = new Date();
-    // now.setHours(11);
+    // now.setHours(14);
     // now.setMinutes(15);
     return now;
 }
-
-/**
- * Установка языка сайта
- * @param {string} lang Пользовательская локаль
- */
-// function setLanguage(lang) {
-// 	$.getJSON(`lang/${lang}.json`, function (data) {
-// 		$.each(data, function (key, val) {
-// 			$(`[name = ${key}]`).html(val);
-// 		});
-// });}
-
-// UpUp.start({
-//   'content-url': 'index.html',
-//   'assets': ['/img/technopolis.jpg', '/css/main.min.css', '/lang/en.json', '/lang/ru.json','/js/scripts.min.js'],
-//   'service-worker-url': '/upup.sw.min.js'
-// });
 
 
     

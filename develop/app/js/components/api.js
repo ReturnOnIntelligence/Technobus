@@ -13,21 +13,28 @@ $(function googleApi() {
                 this.spreadsheetId = spreadsheetId;
             }
 
+            /**
+             * Интерфейс для загрузки данных из google sheets
+             * @param sheet String
+             * @param range String
+             * @param fun function
+             */
             load(sheet, range, fun) {
                 const googleUrl = `https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheet}!${range}?key=${key}`;
                 $.getJSON(googleUrl, fun);
             }
         }
 
-    /**
-     * Класс для
-     */
-    class API {
+        /**
+         * Класс для управления сохранением данных в localStorage, отображения таблицы расписания,
+         * вызова события для отображения уведомлений
+         */
+        class API {
             constructor(tableViewer, googleSpreadsheet) {
                 this.tableViewer = tableViewer;
                 this.googleSpreadsheet = googleSpreadsheet;
                 if (localStorage.length === 0 || localStorage.getItem(0) == null || localStorage.getItem(1) == null) {
-                    //не трогать!
+                    //Синхронная загрузка данных
                     $.ajaxSetup({
                         async: false
                     });
@@ -36,12 +43,9 @@ $(function googleApi() {
                         async: true
                     });
                 } else {
-
-
                     if (navigator.onLine) {
                         this.saveToLocalStorage();
                         this.updateStorage();
-                        //this.showTimetable(0);
                     }
                     try {
                         this.showTable();
@@ -74,22 +78,25 @@ $(function googleApi() {
                     localStorage.setItem(1, JSON.stringify(result));
                 });
                 this.googleSpreadsheetLoad(Info, InfoRange, (result) => {
+                    localStorage.setItem('info', JSON.stringify(result));
                     this.tableViewer.addInfoList(result);
-                    //localStorage.setItem('info', JSON.stringify(result));
-
                 });
                 this.showTimetable(currentTableId);
                 localStorage.setItem('DATE', Date());
             }
 
             /**
-             * Обновление
+             * Обновление данных в локальном хранилмще
              */
             updateStorage() {
                 this.tableViewer.cleanTableList();
                 this.saveToLocalStorage();
             }
 
+            /**
+             * Первичное отображение расписания с проверкой дня недели
+             * Если день недели вызодной, то выводиться weekend-splash
+             */
             showTable() {
                 let now = getCurrentTime();
 
@@ -100,30 +107,32 @@ $(function googleApi() {
                 this.showTimetable();
             }
 
+            /**
+             * Отображает расписания, сохраненные в локальном хранилище в таблице
+             */
             showTimetable() {
                 this.tableViewer.addTableList(JSON.parse(localStorage.getItem(0)), 0);
                 this.tableViewer.addTableList(JSON.parse(localStorage.getItem(1)), 1);
-                //this.tableViewer.addTableList(JSON.parse(localStorage.getItem(id)), id);
             }
         }
 
+        /**
+         * Класс для отображения данных в таблице расписания
+         */
         class TableViewer {
-            constructor(timetableRowClass, infoClass) {
+            constructor(timetableRowClass) {
                 this.timetableRowClass = timetableRowClass;
-                this.infoClass = infoClass;
             }
 
             /**
-             * Добавляет информанию из таблицы
+             * Добавляет уведомления в infoList и вызывает отображение этого уведомления
              * @param {object}   infoJSON  Обьект
-             * @param {string} infoClass Класс в который добавляем
              */
             addInfoList(infoJSON) {
                 let notifications = infoJSON.values;
                 notifications.shift();
                 infoList = notifications;
                 this.showNotification();
-
             }
 
             /**
@@ -131,11 +140,16 @@ $(function googleApi() {
              */
             showNotification() {
                 if (infoList.length === 0 && localStorage.getItem('info') != null) {
-                    // infoList = JSON.parse(localStorage.getItem('info')).values;
-                    infoList = ['', ''];
+                    if (localStorage.getItem('info') != null) {
+                        infoList = JSON.parse(localStorage.getItem('info')).values;
+                    }
+                    else {
+                        infoList = [['', '']];
+                    }
                 }
                 let notification = infoList[notificationNumber];
-                if (notification[1].length + notification[0].length > 0) {
+
+                if (notification.length > 1 && notification[1].length + notification[0].length > 0) {
                     $("#output_notification").text(notification[1]);
                     $('#notification').show();
                 }
@@ -143,9 +157,8 @@ $(function googleApi() {
 
 
             /**
-             * Add table list in timetable
+             * Отображает расписание в таблице
              * @param   {object} timetableJSON     Data
-             * @param   {string} timetableRowClass Table DOM class
              * @param   {number} id                Table list number
              */
             addTableList(timetableJSON, id) {
@@ -156,6 +169,7 @@ $(function googleApi() {
                 let timeSort = {};
                 timetable.shift();
 
+                //создаем асоциативный массив где ключ это час, а значение массив минут
                 timetable.forEach(function (mins, i) {
                     let [hour, min] = mins[0].split(':');
                     mins.shift();
@@ -163,17 +177,12 @@ $(function googleApi() {
                     timeSort[hour].push({min, mins});
                 });
 
-                function compareHour(a, b) {
-                    if (a.hour > b.hour) return 1;
-                    if (a.hour < b.hour) return -1;
-                }
-
                 function compareMin(a, b) {
                     if (a.min > b.min) return 1;
                     if (a.min < b.min) return -1;
                 }
 
-                //timeSort = timeSort.sort(compareHour);
+                //сортируем массивы минут
                 for (let i = 0; i < timeSort.length; i++) {
                     timeSort[i] = timeSort[i].sort(compareMin);
                 }
@@ -212,7 +221,7 @@ $(function googleApi() {
                                     }
                                 }
                             }
-                            timetableRowHtmlString += `<li class="${disableClass} ">
+                            timetableRowHtmlString += `<li class="${disableClass}">
                                                 <div class="time">${hour}:${timeSort[hour][index].min}</div>
                                                 <div class="time-info">
                                                     <div class="info">${specialInfo}</div>
@@ -224,44 +233,7 @@ $(function googleApi() {
 
                 }
 
-
-                /**
-                 * Добавляет строку минут в таблицу
-                 * @param hour
-                 * @param   {object} mins Массив пар (Минуты:День,Id:Часы)
-                 * @returns {string} Строковое представление в таблице
-                 */
-                function getMinsHtmlString(hour, mins) {
-                    let minsHtmlString = hour + ':' + mins[0].value;
-                    // mins.forEach(function (min, i) {
-                    //     minsHtmlString += `<div  class="timetable__min ${getDayClassName(min.mins)}">
-                    // 				${hour}:${min.min}
-                    // 			</div>`;
-                    // });
-                    return minsHtmlString;
-
-                    /**
-                     * Добавляет класс дня недели
-                     * @param   {string} tableDayName Название дня недели в таблице exel
-                     * @returns {string}   Класс дня недели
-                     */
-                    function getDayClassName(tableDayName) {
-                        //console.log(tableDayName);
-                        let minDaysClassNames = "";
-                        // let daysExtendtion = [...days, "All"];
-                        // let count = 0;
-                        // for (let i = 0; i < tableDayName.length; i++) {
-                        //     if (tableDayName[i] === "") {
-                        //         count++;
-                        //         continue;
-                        //     }
-                        //     minDaysClassNames += ' day-' + daysExtendtion[i];
-                        // }
-                        // if (count === 0) minDaysClassNames += ' day-All';
-                        return minDaysClassNames;
-                    }
-                }
-
+                //Вывод сгенерированной таблицы
                 let idTag = this.timetableRowClass + id;
                 $(idTag).html(timetableRowHtmlString);
 
@@ -273,9 +245,7 @@ $(function googleApi() {
         }
 
         googleSpreadsheet = new GoogleSpreadsheet(key, spreadsheetId);
-        tableViewer = new TableViewer("#scheduleList", ".info-list");
+        tableViewer = new TableViewer("#scheduleList");
         apiObj = new API(tableViewer, googleSpreadsheet);
-
-        //setLanguage("ru");
     }
 );

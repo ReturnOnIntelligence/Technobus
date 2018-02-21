@@ -55,25 +55,31 @@ $(function () {
                     "<div class=\"desc\"></div></div></li>");
             }
         }
+    }
 
-        // for(let i = 0; i < breakPoints.length - 1; i++){
-        //     let [h1, m1] = breakPoints[i].children[0].innerText.split(':');
-        //     let end = parseInt(h1) * 60 + parseInt(m1);
-        //
-        //     $(breakPoints[i]).after("<li class=\"fantom-break "+disabledClass+"\"><div class=\"time-info\">" +
-        //         "<div class=\"info\">Перерыв " + getDiffTime(0, 40)+"</div>" +
-        //         "<div class=\"desc\"></div></div></li>");
-        // }
+
+    function addActiveBreak(selectedItem, hourDiff, minutsDiff) {
+        $(selectedItem).before("<li class=\"break is-active\"><div class=\"time-info\">" +
+            "<div class=\"info\">Перерыв " + getDiffTime(hourDiff, minutsDiff) +"</div>" +
+            "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
+
+    }
+
+    function addBussOver(item) {
+        $(item).after("<li class=\"break next is-active\"><div class=\"time-info\">" +
+            "<div class=\"info\">Рейсы закончились</div>" +
+            "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
     }
 
     function setDate() {
 
+        //Обновление и очистка таблицы расписания
         apiObj.showTimetable(0);
 
         let listTo = [].slice.call($("#scheduleList0").get(0).children);
         let listFrom = [].slice.call($("#scheduleList1").get(0).children);
 
-        let selected_item = listTo[0];
+        let selectedItem = listTo[0];
         let index = 0;
         let minDiffFromTime = 90000;
         let time = getCurrentTime();
@@ -91,48 +97,44 @@ $(function () {
 
             let hm = parseInt(h) * 60 + parseInt(m);
 
-            if (hm > timeInMins && minDiffFromTime > Math.abs(timeInMins - hm) && !$(li).hasClass('shadow')) {
-                selected_item = li;
+            if (hm > timeInMins && minDiffFromTime > Math.abs(timeInMins - hm) && !$(li).hasClass('disabled')) {
+                selectedItem = li;
                 index = i;
                 minDiffFromTime = Math.abs(timeInMins - hm);
             }
         }
+        $(selectedItem).removeClass();
 
         if (minDiffFromTime === 90000) {
-
-            $('#scheduleList0 li.warning').after("<li class=\"break fone next is-active\"><div class=\"time-info\">" +
-                "<div class=\"info\">Рейсы закончились</div>" +
-                "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
+            addBussOver(listTo[listTo.length - 1]);
         }
-        let divTime = selected_item.children[0];
-        let divInfo = selected_item.children[1];
+
+        let divTime = selectedItem.children[0];
+        let divInfo = selectedItem.children[1];
         let [h, m] = divTime.innerText.split(':');
 
 
         let hourDiff = Math.floor(minDiffFromTime / 60);
         let minutsDiff = minDiffFromTime % 60;
 
-
         if (minDiffFromTime > 5 && minDiffFromTime <= 10) {
-            //selected_item.className = "success";
-            $(selected_item).addClass("success");
+            $(selectedItem).addClass("success");
             divInfo.children[0].innerText = 'Через ' + getDiffTime(hourDiff, minutsDiff);
         }
         else {
             if (minDiffFromTime <= 5) {
-                //selected_item.className = "alert";
-                $(selected_item).addClass("alert");
+                $(selectedItem).addClass("alert");
                 divInfo.children[0].innerText = 'Через ' + getDiffTime(hourDiff, minutsDiff);
             }
         }
         if(minDiffFromTime < 90000){
-            $(selected_item).addClass("next");
+            $(selectedItem).addClass("next");
         }
 
 
-        if (index < listTo.length - 1 && ($(selected_item).hasClass('success') || $(selected_item).hasClass('alert'))) {
+        if (index < listTo.length - 1 && ($(selectedItem).hasClass('success') || $(selectedItem).hasClass('alert'))) {
             let nextIndex = index + 1;
-            while (nextIndex < listTo.length && $(listTo[nextIndex]).hasClass('shadow'))
+            while (nextIndex < listTo.length && $(listTo[nextIndex]).hasClass('disabled'))
                 nextIndex++;
             if (nextIndex < listTo.length) {
                 let nextTime = listTo[nextIndex].children[0];
@@ -150,15 +152,15 @@ $(function () {
             }
         }
 
-        if($(selected_item).hasClass('warning')){
+        if($(selectedItem).hasClass('warning')){
             divInfo.children[1].innerHTML = "Всегда есть другие варианты &#10095;";
-            $(selected_item).addClass("anotherVariants");
+            $(selectedItem).addClass("anotherVariants");
         }
 
 
         if (index > 0) {
             [hv1, mi1] = listTo[index - 1].children[0].innerText.split(':');
-            a = $(listTo[index]).hasClass('shadow');
+            a = $(listTo[index]).hasClass('disabled');
             if (a) {
                 [hv2, mi2] = listTo[index + 1].children[0].innerText.split(':');
             }
@@ -171,20 +173,16 @@ $(function () {
             pereriv = 200;
         }
 
-
         if (pereriv >= 40 && pereriv < 200) {
-            $(selected_item).before("<li class=\"break fone is-active\"><div class=\"time-info\">" +
-                "<div class=\"info\">Перерыв " + minDiffFromTime + " минут</div>" +
-                "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
-
-            if (currentTableId === 0)
-                $(".fone").show();
+            if(minDiffFromTime > 10) {
+                addActiveBreak(selectedItem, hourDiff, minutsDiff);
+            }
         }
         else {
             if (minDiffFromTime > 10 && minDiffFromTime < 40) {
                 divInfo.children[0].innerText = 'Через ' + getDiffTime(hourDiff, minutsDiff);
                 divInfo.children[1].innerHTML = "Всегда есть другие варианты &#10095;";
-                $(selected_item).addClass("anotherVariants");
+                $(selectedItem).addClass("anotherVariants");
             }
         }
 
@@ -192,7 +190,7 @@ $(function () {
 
         minDiffFromTime = 90000;
         index = 0;
-        selected_item = listFrom[0];
+        selectedItem = listFrom[0];
         for (let i = 0; i < listFrom.length; i++) {
             let li = listFrom[i];
             let divTime = li.children[0];
@@ -202,21 +200,19 @@ $(function () {
 
             let hm = parseInt(h) * 60 + parseInt(m);
 
-            if (hm > timeInMins && minDiffFromTime > Math.abs(hm - timeInMins) && !$(li).hasClass('shadow')) {
-                selected_item = li;
+            if (hm > timeInMins && minDiffFromTime > Math.abs(hm - timeInMins) && !$(li).hasClass('disabled')) {
+                selectedItem = li;
                 index = i;
                 minDiffFromTime = Math.abs(timeInMins - hm);
                 // console.log(minDiffFromTime);
             }
         }
+        $(selectedItem).removeClass();
         if (minDiffFromTime === 90000) {
-
-            $('#scheduleList1 li.warning').after("<li class=\"break fone is-active\"><div class=\"time-info\">" +
-                "<div class=\"info\">Рейсы закончились</div>" +
-                "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
+            addBussOver(listFrom[listFrom.length - 1]);
         }
-        divTime = selected_item.children[0];
-        divInfo = selected_item.children[1];
+        divTime = selectedItem.children[0];
+        divInfo = selectedItem.children[1];
 
 
         hourDiff = Math.floor(minDiffFromTime / 60);
@@ -225,7 +221,7 @@ $(function () {
         let pereriv;
         if (index > 0) {
             [hv1, mi1] = listFrom[index - 1].children[0].innerText.split(':');
-            a = $(listFrom[index]).hasClass('shadow');
+            a = $(listFrom[index]).hasClass('disabled');
             if (a) {
                 [hv2, mi2] = listFrom[index + 1].children[0].innerText.split(':');
             }
@@ -241,46 +237,34 @@ $(function () {
 
         if (pereriv >= 40 && pereriv < 200) {
             if(minDiffFromTime > 10) {
-                $(selected_item).before("<li class=\"break ftwo is-active\"><div class=\"time-info\">" +
-                    "<div class=\"info\">Перерыв " + getDiffTime(hourDiff, minutsDiff)+"т</div>" +
-                    "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
-
-                if (currentTableId === 1) {
-                    $(".ftwo").show();
-                }
+                addActiveBreak(selectedItem, hourDiff, minutsDiff);
             }
-
         }
         else {
-            //$(".break ftwo").remove();
             if (minDiffFromTime > 10 && minDiffFromTime < 40) {
                 divInfo.children[0].innerText = 'Через ' + getDiffTime(hourDiff, minutsDiff);
                 divInfo.children[1].innerHTML = "Всегда есть другие варианты &#10095;";
-                $(selected_item).addClass("anotherVariants");
+                $(selectedItem).addClass("anotherVariants");
             }
         }
 
         if (minDiffFromTime > 5 && minDiffFromTime <= 10) {
-            $(selected_item).addClass("success");
-            //selected_item.className = "success";
-
+            $(selectedItem).addClass("success");
             divInfo.children[0].innerText = 'Через ' + getDiffTime(hourDiff, minutsDiff);
         }
         else {
             if (minDiffFromTime <= 5) {
-                $(selected_item).addClass("alert");
-                //selected_item.className = "alert";
+                $(selectedItem).addClass("alert");
                 divInfo.children[0].innerText = 'Через ' + getDiffTime(hourDiff, minutsDiff);
             }
         }
         if(minDiffFromTime < 90000){
-            $(selected_item).addClass("next");
+            $(selectedItem).addClass("next");
         }
 
-        if (index < listFrom.length - 1 && ($(selected_item).hasClass('success') || $(selected_item).hasClass('alert'))) {
+        if (index < listFrom.length - 1 && ($(selectedItem).hasClass('success') || $(selectedItem).hasClass('alert'))) {
             let nextIndex = index + 1;
-            let teta = !$(listFrom[nextIndex]).hasClass('shadow');
-            while (nextIndex < listFrom.length && $(listFrom[nextIndex]).hasClass('shadow'))
+            while (nextIndex < listFrom.length && $(listFrom[nextIndex]).hasClass('disabled'))
                 nextIndex++;
             if (nextIndex < listFrom.length) {
                 let nextTime = listFrom[nextIndex].children[0];
@@ -292,14 +276,13 @@ $(function () {
                 }
                 let hourDiff = Math.floor(difMins / 60);
                 let minutsDiff = difMins % 60;
-
                 divInfo.children[1].innerText = "Следующий за ним - через " + getDiffTime(hourDiff, minutsDiff);
             }
 
         }
-        if($(selected_item).hasClass('warning')){
+        if($(selectedItem).hasClass('warning')){
             divInfo.children[1].innerHTML = "Всегда есть другие варианты &#10095;";
-            $(selected_item).addClass("anotherVariants");
+            $(selectedItem).addClass("anotherVariants");
         }
 
         addBreaks(listTo);
