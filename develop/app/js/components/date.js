@@ -28,12 +28,13 @@ $(function () {
     }
 
     function addBreaks(list) {
+
         let breakPoints = [];
         let now = getCurrentTime();
 
         let time = now.getHours() * 60 + now.getMinutes();
         let disabledClass = "";
-        for(let i = 0; i < list.length - 1; i++){
+        for(let i = 1; i < list.length - 1; i++){
             //console.log(list[i]);
             let [h1, m1] = list[i].children[0].innerText.split(':');
             let [h2, m2] = list[i + 1].children[0].innerText.split(':');
@@ -47,9 +48,9 @@ $(function () {
                 breakPoints.push(list[i]);
                 disabledClass = "";
                 if(end <= time){
-                    disabledClass = 'disable-break';
+                    disabledClass = 'disabled';
                 }
-                $(list[i]).after("<li class=\"fantom-break "+disabledClass+"\"><div class=\"time-info\">" +
+                $(list[i]).after("<li class=\"break "+disabledClass+"\"><div class=\"time-info\">" +
                     "<div class=\"info\">Перерыв " + getDiffTime(difH, difM)+"</div>" +
                     "<div class=\"desc\"></div></div></li>");
             }
@@ -57,12 +58,11 @@ $(function () {
 
         // for(let i = 0; i < breakPoints.length - 1; i++){
         //     let [h1, m1] = breakPoints[i].children[0].innerText.split(':');
-        //     let start = parseInt(h1) * 60 + parseInt(m1);
-        //     let end = parseInt(h2) * 60 + parseInt(m2);
+        //     let end = parseInt(h1) * 60 + parseInt(m1);
         //
-        //     if(start > time){
-        //
-        //     }
+        //     $(breakPoints[i]).after("<li class=\"fantom-break "+disabledClass+"\"><div class=\"time-info\">" +
+        //         "<div class=\"info\">Перерыв " + getDiffTime(0, 40)+"</div>" +
+        //         "<div class=\"desc\"></div></div></li>");
         // }
     }
 
@@ -70,16 +70,14 @@ $(function () {
 
         apiObj.showTimetable(0);
 
-        let listTo = $("#scheduleList0").get(0).children;
-        let listFrom = $("#scheduleList1").get(0).children;
+        let listTo = [].slice.call($("#scheduleList0").get(0).children);
+        let listFrom = [].slice.call($("#scheduleList1").get(0).children);
 
         let selected_item = listTo[0];
         let index = 0;
         let minDiffFromTime = 90000;
         let time = getCurrentTime();
 
-        addBreaks(listTo);
-        addBreaks(listFrom);
 
         let timeInMins = time.getHours() * 60 + time.getMinutes();
 
@@ -102,7 +100,7 @@ $(function () {
 
         if (minDiffFromTime === 90000) {
 
-            $('#scheduleList0 li.warning').after("<li class=\"break fone next\"><div class=\"time-info\">" +
+            $('#scheduleList0 li.warning').after("<li class=\"break fone next is-active\"><div class=\"time-info\">" +
                 "<div class=\"info\">Рейсы закончились</div>" +
                 "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
         }
@@ -179,7 +177,7 @@ $(function () {
 
 
         if (pereriv >= 40 && pereriv < 200) {
-            $(selected_item).before("<li class=\"break fone\"><div class=\"time-info\">" +
+            $(selected_item).before("<li class=\"break fone is-active\"><div class=\"time-info\">" +
                 "<div class=\"info\">Перерыв " + minDiffFromTime + " минут</div>" +
                 "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
 
@@ -217,7 +215,7 @@ $(function () {
         }
         if (minDiffFromTime === 90000) {
 
-            $('#scheduleList1 li.warning').after("<li class=\"break fone\"><div class=\"time-info\">" +
+            $('#scheduleList1 li.warning').after("<li class=\"break fone is-active\"><div class=\"time-info\">" +
                 "<div class=\"info\">Рейсы закончились</div>" +
                 "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
         }
@@ -247,7 +245,7 @@ $(function () {
 
         if (pereriv >= 40 && pereriv < 200) {
             if(minDiffFromTime > 10) {
-                $(selected_item).before("<li class=\"break ftwo\"><div class=\"time-info\">" +
+                $(selected_item).before("<li class=\"break ftwo is-active\"><div class=\"time-info\">" +
                     "<div class=\"info\">Перерыв " + getDiffTime(hourDiff, minutsDiff)+"т</div>" +
                     "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
 
@@ -309,10 +307,11 @@ $(function () {
         }
 
 
+        addBreaks(listTo);
+        addBreaks(listFrom);
 
 
-
-        $('li.break').click(function () {
+        $('li.break.is-active').click(function () {
             $('#Third_page').trigger('click');
         });
         $('li.anotherVariants').click(function () {

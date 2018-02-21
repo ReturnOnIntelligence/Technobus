@@ -31,15 +31,3 @@ li.redline {
     width: 100%;
     height: 304px;
 }
-
-/*hot-fix
-ToDo Remove this class
-*/
-li.fantom-break {
-    background:#4A4A4A !important;
-    color:#fff;
-}
-li.disable-break {
-    background: #7f7f7f !important;
-    color:#999
-}
