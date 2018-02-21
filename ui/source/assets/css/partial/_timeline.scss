@@ -46,8 +46,10 @@
 			background:$blue-light;
 			text-align:right;
 
-			&.break {
-				@include flex-direction(row);
+			&.break:not(.is-active) {
+				.time-info {
+					text-align:right;
+				}
 			}
 		}
 
@@ -72,18 +74,18 @@
 	}
 
 	li.break {
-		background:$onyx-medium;
-		color:$white;
-
-		a {color:$white;}
+		color:$active;
 
 		.time-info {
 			padding:0;
 			width:100%;
 		}
 
-		[class*='icon-'] {
-			fill:$white;
+		&.is-active {
+			background:$onyx-medium;
+			color:$white;
+
+			a {color:$white;}
 		}
 	}
 
