@@ -9,13 +9,8 @@ import android.webkit.WebViewClient;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.content.Context;
-import android.util.Log;
-import java.io.IOException;
-import java.net.HttpURLConnection;
-import java.net.URL;
 
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -73,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         wv.loadUrl("http://o99922wq.beget.tech/");
+
+//       // Для вставки SVG
+//        ImageView imageView = (ImageView) findViewById(R.id.iv2);
+//        SVG svg = SVGParser.getSVGFromResource(getResources(), R.raw.svg);
+////The following is needed because of image accelaration in some devices such as samsung
+//        imageView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
+//        imageView.setImageDrawable(svg.createPictureDrawable());
     }
 
 
@@ -92,57 +94,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     }
-
-
-
-
-//        public boolean check(View v) {
-//        if (checkInternet()){
-////            wv.loadUrl("http://o99922wq.beget.tech/");
-////            wv.setWebViewClient(new WebViewClient());
-//            return true;
-//        }
-//        else {
-////            Toast toast = Toast.makeText(getApplicationContext(),
-////                    "Покдключись к интернеу!", Toast.LENGTH_SHORT);
-////            toast.show();
-//            return false;
-//        }
-//    }
-
-
-
-//        public boolean checkInternet() {
-//
-//            Toast toast = Toast.makeText(getApplicationContext(),
-//                    "Покдключись к интернеу!", Toast.LENGTH_SHORT);
-//            toast.show();
-//
-//        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-//
-//        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
-//        // проверка подключения
-//        if (activeNetwork != null && activeNetwork.isConnected()) {
-//            try {
-//                 //тест доступности внешнего ресурса
-//                URL url = new URL("http://www.google.com/");
-//                HttpURLConnection urlc = (HttpURLConnection) url.openConnection();
-//                urlc.setRequestProperty("User-Agent", "test");
-//                urlc.setRequestProperty("Connection", "close");
-//                urlc.setConnectTimeout(1000); // Timeout в секундах
-//                urlc.connect();
-//                // статус ресурса OK
-//                if (urlc.getResponseCode() == 200) {
-//                    return true;
-//                }
-//                // иначе проверка провалилась
-//                return false;
-//
-//            } catch (IOException e) {
-//                Log.d("my_tag", "Ошибка проверки подключения к интернету", e);
-//                return false;
-//            }
-//        }
-//        return false;
-//    }
 }
