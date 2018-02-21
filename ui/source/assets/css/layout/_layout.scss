@@ -72,7 +72,7 @@ body {
 	.page-wrap {
 		top:10vh;
 		margin:0 auto;
-		width:rem(360);
+		width:rem(375);
 		height:80vh;
 		border-radius:10px;
 		box-shadow:0 0 13px 0 rgba($onyx-dark, .5);
@@ -85,7 +85,9 @@ body {
 			bottom:-4px;
 			left:-4px;
 			border-radius:15px;
-			background-image:linear-gradient(to right, #3EC8AC 0%, #4E90A4 100%), linear-gradient(to right, #3EC8AC 0%, #4E90A4 100%);
+			background-image:url('../../assets/images/web-frame.png');
+			background-repeat:no-repeat;
+			background-size:cover;
 			z-index:-1;
 		}
 	}
