@@ -35,7 +35,7 @@ $(function () {
         let time = now.getHours() * 60 + now.getMinutes();
         let disabledClass = "";
         for (let i = 0; i < list.length - 1; i++) {
-            //console.log(list[i]);
+
             if ($(list[i]).hasClass('disabled')) {
                 continue;
             }
@@ -43,7 +43,8 @@ $(function () {
 
             while (i + 1 < list.length && $(list[i + 1]).hasClass('disabled'))
                 i++;
-
+            if(i + 2 > list.length)
+                continue;
             let [h2, m2] = list[i + 1].children[0].innerText.split(':');
             let start = parseInt(h1) * 60 + parseInt(m1);
             let end = parseInt(h2) * 60 + parseInt(m2);
@@ -70,7 +71,6 @@ $(function () {
                 addActiveBreak(list[i + 1], hourDiff, minutsDiff);
             }
             else if (differenceTime < 40 && difFromNow > 10 && difFromNow < 40 && time < end && start <= time) {
-                console.log(list[i + 1].querySelector('.time'));
                 list[i + 1].querySelector('.info').innerText = 'Через ' + getDiffTime(hourDiff, minutsDiff);
                 list[i + 1].querySelector('.desc').innerHTML = "Всегда есть другие варианты &#10095;";
                 $(list[i + 1]).addClass("anotherVariants");
@@ -106,7 +106,18 @@ $(function () {
         let minDiffFromTime = 90000;
         let time = getCurrentTime();
 
-
+        let lastLi = listTo.length - 1;
+        while(lastLi > 0 && $(listTo[lastLi]).hasClass('disabled'))
+           lastLi--;
+        if(lastLi > 0) {
+            $(listTo[lastLi]).addClass('warning');
+        }
+        lastLi = listFrom.length - 1;
+        while(lastLi > 0 && $(listFrom[lastLi]).hasClass('disabled'))
+            lastLi--;
+        if(lastLi > 0) {
+            $(listFrom[listFrom.length - 1]).addClass('warning');
+        }
         let timeInMins = time.getHours() * 60 + time.getMinutes();
 
         //Поиск и выделение элемента в таблице к технополису
@@ -125,7 +136,7 @@ $(function () {
                 minDiffFromTime = Math.abs(timeInMins - hm);
             }
         }
-        $(selectedItem).removeClass();
+
 
         if (minDiffFromTime === 90000) {
             addBussOver(listTo[listTo.length - 1]);
@@ -138,6 +149,8 @@ $(function () {
 
         let hourDiff = Math.floor(minDiffFromTime / 60);
         let minutsDiff = minDiffFromTime % 60;
+
+
 
         if (minDiffFromTime > 5 && minDiffFromTime <= 10) {
             $(selectedItem).addClass("success");
@@ -198,10 +211,10 @@ $(function () {
                 selectedItem = li;
                 index = i;
                 minDiffFromTime = Math.abs(timeInMins - hm);
-                // console.log(minDiffFromTime);
+
             }
         }
-        $(selectedItem).removeClass();
+
         if (minDiffFromTime === 90000) {
             addBussOver(listFrom[listFrom.length - 1]);
         }

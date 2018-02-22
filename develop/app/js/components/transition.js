@@ -12,7 +12,7 @@ function transition1() {
 }
 
 function transition2() {
-    $('#notification').hide();
+    //$('#notification').hide();
     $('#timelineDirection').hide();
     $('.third_page').hide();
     $('#first_alt_ways').hide();
@@ -33,7 +33,7 @@ function transition2() {
 }
 
 function transition3() {
-    $('#notification').hide();
+    //$('#notification').hide();
     $('#timelineDirection').hide();
     $('#first_scheme').hide();
     $('#second_scheme').hide();

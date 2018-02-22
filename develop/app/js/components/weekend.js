@@ -1,7 +1,7 @@
 
 $(function() {
 
-    $('.js-weekend-splash').hide();
+
 
 	$('.js-close-weekend-splash').click(function () {
         $('.js-weekend-splash').hide();

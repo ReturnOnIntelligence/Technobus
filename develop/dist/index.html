@@ -62,6 +62,7 @@
 
 <div class="page-wrap">
     <!-- SPLASH SCREEN - BEGINS -->
+
     <div class="splash js-splash">
 
         <div class="app-info">
@@ -246,7 +247,7 @@
     <!-- THIRD_PAGE - BEGINS -->
     <section class="map-wrap" id="first_alt_ways">
         <h3>Общественным Транспортом:</h3>
-        От Остановки <a href="javascript:;">
+        От Остановки <a href="javascript:;" class="map-link-metro-alt">
         <svg class="icon-location">
             <use xlink:href="assets/svg/defs.svg#icon-location"></use>
         </svg>
@@ -276,7 +277,7 @@
         <h3>БЦ "Технополис":</h3>
 
         <ul class="location-info">
-            <li><a href="yandexmaps://maps.yandex.ru/?ll=37.62,55.75&z=12">
+            <li> <a href="javascript:;" class="map-link-tech">
                 <svg class="icon-location">
                     <use xlink:href="assets/svg/defs.svg#icon-location"></use>
                 </svg>
@@ -293,7 +294,7 @@
 
     <section class="map-wrap tube" id="second_alt_ways">
         <h3>Общественным Транспортом:</h3>
-        От Остановки <a href="javascript:;">
+        От Остановки <a href="javascript:;" class="map-link-tech-tc">
         <svg class="icon-location">
             <use xlink:href="assets/svg/defs.svg#icon-location"></use>
         </svg>
@@ -310,10 +311,9 @@
         <ul class="map">
             <li class="final-stop-tube">ст. м. "Московская"</li>
             <li>ост. автобусов "ТЦ Metro"
-                <span class="note">пеш.переход через Пулковское ш.</span>
             </li>
             <li class="begin-stop-technopolis">
-                <span class="note">Пешком 10 мин на юг</span>
+                <span class="note">Пешком 10 мин на север</span>
                 БЦ "Технополис"
             </li>
         </ul>
@@ -321,7 +321,7 @@
         <h3>БЦ "Технополис":</h3>
 
         <ul class="location-info">
-            <li><a href="yandexmaps://maps.yandex.ru/?ll=37.62,55.75&z=12">
+            <li> <a href="javascript:;" class="map-link-tech">
                 <svg class="icon-location">
                     <use xlink:href="assets/svg/defs.svg#icon-location"></use>
                 </svg>
@@ -333,6 +333,7 @@
                 <a href="javascript:;" class="js-mobile-number">+7 812 318 0055</a>
             </li>
         </ul>
+
     </section>
     <!-- THIRD_PAGE - ENDS -->
 

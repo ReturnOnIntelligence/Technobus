@@ -99,8 +99,7 @@ $(function googleApi() {
              */
             showTable() {
                 let now = getCurrentTime();
-
-                console.log(now);
+                $('.js-weekend-splash').hide();
                 if (now.getDay() === 0 || now.getDay() === 6) {
                     $('.js-weekend-splash').show();
                 }
@@ -183,9 +182,11 @@ $(function googleApi() {
                 }
 
                 //сортируем массивы минут
-                for (let i = 0; i < timeSort.length; i++) {
-                    timeSort[i] = timeSort[i].sort(compareMin);
+
+                for(let item in timeSort){
+                    timeSort[item] = timeSort[item].sort(compareMin);
                 }
+
                 if (id === 0)
                     sortedTimeLists.to = timeSort;
                 else
@@ -196,8 +197,8 @@ $(function googleApi() {
                         if (hour !== "" && timeSort[hour][index].min !== "") {
                             let weekCount = 0;
                             let weekSelect = timeSort[hour][index].mins;
-                            for (let i = 0; i < weekSelect.length; i++) {
-                                if (weekSelect[i].length > 0)
+                            for (let i = 0; i < 5; i++) {
+                                if (weekSelect.length > i && weekSelect[i].length > 0)
                                     weekCount++;
                             }
                             let disableClass = "";
@@ -211,7 +212,7 @@ $(function googleApi() {
                                     disableClass = 'redline';
                                     specialInfo = "Только сегодня";
                                 }
-                                else {
+                                else if(weekCount > 0){
                                     disableClass = "disabled";
                                     specialInfo = "В ";
                                     for (let i = 0; i < weekSelect.length; i++) {
@@ -221,6 +222,14 @@ $(function googleApi() {
                                     }
                                 }
                             }
+                            if(timeSort[hour][index].mins.length > 7 && timeSort[hour][index].mins[7].length > 0){
+                                disableClass = "disabled";
+                                specialInfo = "Отменен сегодня";
+                            } else if(timeSort[hour][index].mins.length > 8 && timeSort[hour][index].mins[8].length > 0) {
+                                disableClass = 'redline';
+                                specialInfo = "Только сегодня";
+                            }
+
                             timetableRowHtmlString += `<li class="${disableClass}">
                                                 <div class="time">${hour}:${timeSort[hour][index].min}</div>
                                                 <div class="time-info">

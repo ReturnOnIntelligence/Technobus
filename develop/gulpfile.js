@@ -44,7 +44,7 @@ gulp.task('js', ['common-js'], function () {
         'app/js/common.min.js', // Всегда в конце
     ])
         .pipe(concat('scripts.min.js'))
-        //.pipe(uglify()) // Минимизировать весь js (на выбор)
+        .pipe(uglify()) // Минимизировать весь js (на выбор)
         .pipe(gulp.dest('app/js'))
         .pipe(browserSync.reload({stream: true}));
 });
@@ -64,7 +64,7 @@ gulp.task('sass', function() {
     return gulp.src('app/sass/**/*.scss')
         .pipe(sass({outputStyle: 'expand'}).on("error", notify.onError()))
         .pipe(autoprefixer(['last 15 versions']))
-        //.pipe(cleanCSS()) // Опционально, закомментировать при отладке
+        .pipe(cleanCSS()) // Опционально, закомментировать при отладке
         .pipe(concat('style.css'))
         .pipe(rename({suffix: '.min', prefix : ''}))
         .pipe(gulp.dest('app/assets/css'))

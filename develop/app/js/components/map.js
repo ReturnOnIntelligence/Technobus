@@ -5,6 +5,8 @@
 const places = {
     metro: [59.854606, 30.320864],
     technopolis: [59.817998, 30.328237],
+    tcMetro: [59.824892, 30.323428],
+    metroAlt: [59.848758, 30.321244],
 };
 
 //Отображение карт
@@ -31,6 +33,17 @@ $(function () {
     $('.map-link-tech').click(function () {
         if (navigator.onLine) {
             window.open('http://maps.apple.com/?q=' + places.technopolis[0] + ',' + places.technopolis[1]);
+        }
+    });
+
+    $('.map-link-metro-alt').click(function () {
+        if (navigator.onLine) {
+            window.open('http://maps.apple.com/?q=' + places.metroAlt[0] + ',' + places.metroAlt[1]);
+        }
+    });
+    $('.map-link-tech-tc').click(function () {
+        if (navigator.onLine) {
+            window.open('http://maps.apple.com/?q=' + places.tcMetro[0] + ',' + places.tcMetro[1]);
         }
     });
 });
