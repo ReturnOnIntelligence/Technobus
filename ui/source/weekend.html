@@ -1,0 +1,24 @@
+<!--(bake /source/includes/master/_header-meta.html pageTitle="Расписание автобусов")-->
+
+<div class="page-wrap">
+	<!--(bake /source/includes/_weekend.html)-->
+
+	<header>
+			<!--(bake /source/includes/master/_nav-main.html technopolis-nav="is-active")-->
+	</header>
+
+	<!-- TIMELINE - BEGINS -->
+	<section class="timeline-wrap">
+		<ul class="timeline">
+			<!--(bake /source/includes/_time-cell.html _foreach="item:office")-->
+		</ul>
+		<!--(bake /source/includes/master/_copyright.html)-->
+	</section>
+	<!-- TIMELINE - ENDS -->
+
+	<footer>
+		<!--(bake /source/includes/master/_nav-extra.html timeline="is-active")-->
+	</footer>
+</div>
+
+<!--(bake /source/includes/master/_footer-meta.html)-->

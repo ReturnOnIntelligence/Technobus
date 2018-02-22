@@ -2,6 +2,9 @@
  * Модуль установки времени показа заставки
  */
 $(function(){
+    $('.js-splash').click(function () {
+        $('.js-splash').hide();
+    });
     // Установка времени показа заставки
-    $(".preloader").delay(1000).fadeOut("slow");
+    $('.splash').delay(1000).fadeOut("slow");
 });

@@ -1,0 +1,29 @@
+
+#first_scheme, #second_scheme {
+    display: none;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    margin: 0 auto;
+}
+
+#first_alt_ways, #second_alt_ways {
+    display: none;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+li.redline {
+    background: #F5F5F5;
+    color: rgb(232, 5, 10)
+}
+#cache-0map, #cache-1map{
+    width: 100%;
+    height: 304px;
+}

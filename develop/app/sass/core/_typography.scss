@@ -1,0 +1,77 @@
+// ------------------------------------------------------------------------- //
+// Typography
+
+// Default size of text
+// 12px = 75%
+// 16px = 100%
+// ------------------------------------------------------------------------- //
+@font-face {
+	font-family:'san_francisco_textregular';
+	src:url('../fonts/SFUIText-Regular.eot');
+	src:local('SF UI Text Regular'), local('SFUIText-Regular'),
+		url('../fonts/SFUIText-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/SFUIText-Regular.woff') format('woff'),
+		url('../fonts/SFUIText-Regular.ttf') format('truetype');
+	font-weight:normal;
+	font-style:normal;
+}
+
+@font-face {
+	font-family:'san_francisco_textlight';
+	src:url('../fonts/SFUIText-Light.eot');
+	src:local('SF UI Text Light'), local('SFUIText-Light'),
+		url('../fonts/SFUIText-Light.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/SFUIText-Light.woff') format('woff'),
+		url('../fonts/SFUIText-Light.ttf') format('truetype');
+	font-weight:normal;
+	font-style:normal;
+}
+
+@font-face {
+	font-family:'san_francisco_textsemibold';
+	src:url('../fonts/SFUIText-Semibold.eot');
+	src:local('SF UI Text Semibold'), local('SFUIText-Semibold'),
+		url('../fonts/SFUIText-Semibold.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/SFUIText-Semibold.woff') format('woff'),
+		url('../fonts/SFUIText-Semibold.ttf') format('truetype');
+	font-weight:normal;
+	font-style:normal;
+}
+
+body {
+	background-color:$onyx-light;
+	font:87.5% 'san_francisco_textregular', Arial,Helvetica,sans-serif;
+	color:$onyx-medium;
+}
+
+// Links
+a {
+	text-decoration:none;
+	color:$active;
+}
+
+a:visited {color:$active;}
+a:hover {color:$active;}
+a:active {color:$active;}
+
+// Headers
+h3 {
+	margin:rem(0 0 5);
+	line-height:rem(26);
+	font-size:rem(17);
+	font-weight:100;
+	color:$onyx-medium;
+}
+
+h4 {
+	margin:rem(10 0);
+	line-height:rem(26);
+	font-size:rem(14);
+	font-weight:100;
+	color:$onyx-medium;
+}
+
+// Text
+.lead {
+	font-size:rem(17);
+}

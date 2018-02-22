@@ -30,6 +30,16 @@
     {
       "time": "14:10"
     },
+		{
+			"time": "break",
+			"info": "Перерыв 40 минут",
+			"class": "break disabled"
+		},
+		{
+			"time": "break",
+			"info": "Перерыв 40 минут",
+			"class": "break"
+		},
     {
       "time": "14:50"
     },
@@ -39,7 +49,8 @@
     {
       "time": "break",
       "info": "Перерыв 1 час 20 минут",
-      "desc": "Воспользуйтесь общественным транспортом <svg class='icon-arrow-right'><use xlink:href='assets/svg/defs.svg#icon-arrow-right'></use></svg>"
+      "desc": "Воспользуйтесь общественным транспортом",
+			"class": "break is-active"
     },
     {
       "time": "16:50"
@@ -84,7 +95,7 @@
       "time": "21:20",
       "class": "warning",
       "info": "Последний 00:11",
-      "desc": "Всегда есть другие варианты <svg class='icon-arrow-right'><use xlink:href='assets/svg/defs.svg#icon-arrow-right'></use></svg>"
+      "desc": "Всегда есть другие варианты"
     }
   ]
 }
