@@ -11,7 +11,9 @@ import android.net.NetworkInfo;
 import android.content.Context;
 
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
+import android.os.CountDownTimer;
 
 
 
@@ -19,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
 
     WebView wv;
     ImageView iv;
+    TextView textView;
 
     @Override
     public void onBackPressed(){
@@ -57,24 +60,38 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onReceivedError(WebView view, int errorCode, String description, String failingUrl) {
 
-                Toast toast = Toast.makeText(getApplicationContext(),
-                    "При первом запуске нужно подключение к интернету!", Toast.LENGTH_SHORT);
-            toast.show();
+//                Toast toast = Toast.makeText(getApplicationContext(),
+//                    "При первом запуске нужно подключение к интернету!", Toast.LENGTH_SHORT);
+//            toast.show();
 
-                wv.setVisibility(View.INVISIBLE);
+                wv.setVisibility(View.INVISIBLE);//!!!!!!!!!!!!!!!!
                 iv = (ImageView) findViewById(R.id.iv);
                 iv.setVisibility(View.VISIBLE);
+
+                textView = (TextView) findViewById(R.id.textView);
+                textView.setVisibility(View.VISIBLE);
+
+
+
+                new CountDownTimer(5000, 5000) {
+
+                    public void onTick(long millisUntilFinished) {
+                    }
+
+                    public void onFinish() {
+                        wv.loadUrl("http://www.returnonintelligence.ru/technobus/");
+
+                        wv.setVisibility(View.VISIBLE);//!!!!!!!!!!!!!!!!
+                        iv = (ImageView) findViewById(R.id.iv);
+                        iv.setVisibility(View.INVISIBLE);
+                        textView = (TextView) findViewById(R.id.textView);
+                        textView.setVisibility(View.INVISIBLE);
+                    }
+                }.start();
             }
         });
 
-        wv.loadUrl("http://o99922wq.beget.tech/");
-
-//       // Для вставки SVG
-//        ImageView imageView = (ImageView) findViewById(R.id.iv2);
-//        SVG svg = SVGParser.getSVGFromResource(getResources(), R.raw.svg);
-////The following is needed because of image accelaration in some devices such as samsung
-//        imageView.setLayerType(View.LAYER_TYPE_SOFTWARE, null);
-//        imageView.setImageDrawable(svg.createPictureDrawable());
+        wv.loadUrl("http://www.returnonintelligence.ru/technobus/");
     }
 
 

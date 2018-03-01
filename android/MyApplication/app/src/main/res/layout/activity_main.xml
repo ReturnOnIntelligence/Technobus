@@ -6,10 +6,11 @@
     android:layout_height="match_parent"
     tools:context="com.example.myapplication.MainActivity">
 
+
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="1196dp"
-        android:layout_height="1016dp"
+        android:layout_width="2196dp"
+        android:layout_height="2222dp"
         android:layout_x="60dp"
         android:layout_y="213dp"
         android:background="#F5F5F5"
@@ -25,8 +26,24 @@
         android:layout_marginTop="8dp"
         android:src="@raw/bus"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.59"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="222dp"
+        android:layout_height="61dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif"
+        android:text="Необходим доступ в интернет"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
     <WebView
         android:id="@+id/wv"
