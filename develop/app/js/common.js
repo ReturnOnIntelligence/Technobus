@@ -32,7 +32,7 @@ const FromTechnopolis = "From Technopolis";
 const rangeFrom = "A:J";
 
 const Info = "Info";
-const InfoRange = "A:B";
+const InfoRange = "A2:B2";
 
 const spesialRange = "I:J";
 

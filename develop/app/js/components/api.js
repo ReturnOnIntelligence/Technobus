@@ -99,7 +99,7 @@ $(function googleApi() {
              */
             showTable() {
                 let now = getCurrentTime();
-                $('.js-weekend-splash').hide();
+
                 if (now.getDay() === 0 || now.getDay() === 6) {
                     $('.js-weekend-splash').show();
                 }
