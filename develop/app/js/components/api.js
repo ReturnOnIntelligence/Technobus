@@ -48,7 +48,7 @@ $(function googleApi() {
                         this.updateStorage();
                     }
                     try {
-                        this.showTable();
+                        this.showTimetable();
                     } catch (err) {
                         console.error("showTimetable: ", err);
                     }
@@ -82,7 +82,6 @@ $(function googleApi() {
                     this.tableViewer.addInfoList(result);
                 });
                 this.showTimetable(currentTableId);
-                localStorage.setItem('DATE', Date());
             }
 
             /**
@@ -94,22 +93,17 @@ $(function googleApi() {
             }
 
             /**
-             * Первичное отображение расписания с проверкой дня недели
-             * Если день недели вызодной, то выводиться weekend-splash
-             */
-            showTable() {
-                let now = getCurrentTime();
-
-                if (now.getDay() === 0 || now.getDay() === 6) {
-                    $('.js-weekend-splash').show();
-                }
-                this.showTimetable();
-            }
-
-            /**
              * Отображает расписания, сохраненные в локальном хранилище в таблице
              */
             showTimetable() {
+                let now = getCurrentTime();
+                if(!isWeekendSplashChecked) {
+                    if (now.getDay() === 0 || now.getDay() === 6) {
+                        $('.js-weekend-splash').show();
+                    }
+                    isWeekendSplashChecked = true;
+                }
+
                 this.tableViewer.addTableList(JSON.parse(localStorage.getItem(0)), 0);
                 this.tableViewer.addTableList(JSON.parse(localStorage.getItem(1)), 1);
             }
@@ -122,7 +116,6 @@ $(function googleApi() {
             constructor(timetableRowClass) {
                 this.timetableRowClass = timetableRowClass;
             }
-
             /**
              * Добавляет уведомления в infoList и вызывает отображение этого уведомления
              * @param {object}   infoJSON  Обьект

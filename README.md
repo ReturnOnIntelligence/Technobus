@@ -96,9 +96,7 @@ Info
 - Из ссылки на Google Таблицу вытаскиваем **spreadsheetId** таблицы
 > docs.google.com/ spreadsheets / d / **spreadsheetId** /edit#gid=0
 - Копируем **spreadsheetId** в переменную **spreadsheetId**
-
-
-
-
+## Android-приложение
+APK находится в ветке adnroid, путь: android/app-debug.apk
 
 

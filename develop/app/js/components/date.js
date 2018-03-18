@@ -72,7 +72,7 @@ $(function () {
             }
             else if (differenceTime < 40 && difFromNow > 10 && difFromNow < 40 && time < end && start <= time) {
                 list[i + 1].querySelector('.info').innerText = 'Через ' + getDiffTime(hourDiff, minutsDiff);
-                list[i + 1].querySelector('.desc').innerHTML = "Всегда есть другие варианты &#10095;";
+                list[i + 1].querySelector('.desc').innerHTML = "<a href='javascript:'>Всегда есть другие варианты &#10095;</a>";
                 $(list[i + 1]).addClass("anotherVariants");
             }
         }
@@ -82,7 +82,7 @@ $(function () {
     function addActiveBreak(selectedItem, hourDiff, minutsDiff) {
         $(selectedItem).before("<li class=\"break is-active\"><div class=\"time-info\">" +
             "<div class=\"info\">Перерыв " + getDiffTime(hourDiff, minutsDiff) + "</div>" +
-            "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
+            "<div class=\"desc\"><a href='javascript:'>Воспользуйтесь общественным транспортом &#10095</a></div></div></li>");
 
     }
 
@@ -90,7 +90,7 @@ $(function () {
     function addBussOver(item) {
         $(item).after("<li class=\"break next is-active\"><div class=\"time-info\">" +
             "<div class=\"info\">Рейсы закончились</div>" +
-            "<div class=\"desc\">Воспользуйтесь общественным транспортом &#10095</div></div></li>");
+            "<div class=\"desc\"><a href='javascript:'>Воспользуйтесь общественным транспортом &#10095</a></div></div></li>");
     }
 
     function setDate() {
@@ -188,7 +188,7 @@ $(function () {
         }
 
         if ($(selectedItem).hasClass('warning')) {
-            divInfo.children[1].innerHTML = "Всегда есть другие варианты &#10095;";
+            divInfo.children[1].innerHTML = "<a href='javascript:'>Всегда есть другие варианты &#10095;</a>";
             $(selectedItem).addClass("anotherVariants");
         }
 
@@ -257,7 +257,7 @@ $(function () {
 
         }
         if ($(selectedItem).hasClass('warning')) {
-            divInfo.children[1].innerHTML = "Всегда есть другие варианты &#10095;";
+            divInfo.children[1].innerHTML = "<a href='javascript:'>Всегда есть другие варианты &#10095;</a>";
             $(selectedItem).addClass("anotherVariants");
         }
 
