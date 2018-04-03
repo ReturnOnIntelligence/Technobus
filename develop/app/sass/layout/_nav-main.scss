@@ -19,11 +19,12 @@
 		text-align:center;
 		text-decoration:none;
 		font-family:'san_francisco_textsemibold';
+		border-bottom:solid 3px $white;
 		color:$onyx-medium;
 
 		&.is-active {
-			background-color:$active;
-			color:$white;
+			border-bottom-color:$active;
+			color:$active;
 		}
 	}
 }
