@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Version 1.0.0 -->
 <html>
 <head>
     <title>Расписание автобусов</title>
@@ -48,10 +49,27 @@
 
     <!-- Favicon/Touch Icons-->
 
-    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-touch-icon-180x180.png">
-    <link rel="shortcut icon" href="assets/images/favicon/apple-touch-icon-60x60.png">
+    <!-- Favicon/Touch Icons-->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/favicon/apple-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/favicon/apple-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/favicon/apple-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/favicon/apple-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/favicon/apple-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/favicon/apple-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/favicon/apple-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/favicon/apple-icon-152x152.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicon/apple-icon-180x180.png" />
+    <link rel="icon" type="image/png" sizes="192x192"  href="assets/images/favicon/android-icon-192x192.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/favicon/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/favicon/favicon-96x96.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon/favicon-16x16.png" />
+    <link rel="manifest" href="assets/images/favicon/manifest.json" />
+
+    <meta name="application-name" content="Shuttle Bus" />
+    <meta name="msapplication-square70x70logo" content="assets/images/favicon/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="assets/images/favicon/mstile-150x150.png" />
+    <meta name="msapplication-square310x310logo" content="assets/images/favicon/mstile-310x310.png" />
+    <meta name="msapplication-TileColor" content="#0D3D94" />
 
     <meta name="apple-mobile-web-app-capable" content="yes"/>
     <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
@@ -85,7 +103,7 @@
     <!-- SPLASH SCREEN - ENDS -->
 
     <!-- WEEKEND - BEGINS -->
-    <div class="weekend-splash js-weekend-splash">
+    <div class="weekend-splash js-weekend-splash" style="display: none">
         <div class="weekend-info">
             <div class="icon-bus-wrap">
                 <svg class="icon-bus-sleep">
@@ -135,7 +153,7 @@
     </header>
 
     <!-- MESSAGE - BEGINS -->
-    <div class="message" id="notification">
+    <div class="message" id="notification" style="display: none">
         <div class="close">
             <svg class="icon-close">
                 <use xlink:href="assets/svg/defs.svg#icon-close"></use>
@@ -169,7 +187,7 @@
     <!-- SECOND_PAGE - BEGINS -->
     <section class="bus-stop-wrap" id="first_scheme">
         <div class="bus-stop-map" id="map0">
-            <img id="cache-0map" src="assets/images/metroMap.png" alt="Карта">
+            <img id="cache-0map" src="assets/images/metroMap.png" alt="Карта" style="display: none;">
         </div>
         <div class="bus-stop-description">
             <a href="javascript:;" class="map-link map-link-metro">Посмотреть на Карте</a>
@@ -207,10 +225,10 @@
 
     <section class="bus-stop-wrap" id="second_scheme">
         <div class="bus-stop-map" id="map1">
-            <img id="cache-1map" src="assets/images/techMap.png" alt="Карта">
+            <img id="cache-1map" src="assets/images/techMap.png" alt="Карта" style="display: none;">
         </div>
         <div class="bus-stop-description">
-            <a href="javascript:" class="map-link map-link-tech">Посмотреть на Карте</a>
+            <a href="javascript:;" class="map-link map-link-tech">Посмотреть на Карте</a>
 
             <div class="bus-stop-content">
                 <h3>Посадка от БЦ "Технополис"</h3>
@@ -364,4 +382,5 @@
 
 </body>
 <script src="js/scripts.min.js"></script>
+<script type="text/javascript">$(document).ready(function(){svg4everybody();})</script>
 </html>

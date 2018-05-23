@@ -10,12 +10,12 @@ $(function() {
 
 	// Close closeWeekendSlash
 	function closeWeekendSlash() {
-		$('.js-weekend-splash').hide();;
+		$('.js-weekend-splash').hide();
 	}
 
 	// Close closeSlash
 	function closeSlash() {
-		$('.js-splash').hide();;
+		$('.js-splash').hide();
 	}
 
 	init();

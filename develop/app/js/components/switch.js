@@ -4,7 +4,7 @@
 
 
 function checkMapLoad() {
-    if (currentWindow === 2 && !isLoadedMaps) {
+    if (currentWindow === 2 ) {
         showMap();
     }
 }
@@ -32,7 +32,6 @@ $(function () {
 
     $("#toTechn").click(function () {
         currentTableId = 0;
-
         $("#toTechn").addClass("is-active");
         $("#toMetro").removeClass("is-active");
         $("#timelineDirection").removeClass("tube");
@@ -50,9 +49,8 @@ $(function () {
         }
         else if (currentWindow === 2) {
             transition2();
-            //showMap();
+            checkMapLoad();
         }
-
         else if (currentWindow === 3)
             transition3();
 
@@ -60,6 +58,7 @@ $(function () {
 
     $("#toMetro").click(function () {
         currentTableId = 1;
+
         $("#toMetro").addClass("is-active");
         $("#toTechn").removeClass("is-active");
         $("#timelineDirection").addClass("tube");
@@ -76,9 +75,10 @@ $(function () {
         }
         else if (currentWindow === 2) {
             transition2();
-            //showMap();
+            checkMapLoad();
         }
         else if (currentWindow === 3)
             transition3();
+
     });
 });

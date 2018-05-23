@@ -15,6 +15,9 @@ var sortedTimeLists = { 'to' : [], 'from' : []};
 var notificationNumber = 0;
 
 var isLoadedMaps = false;
+var isToMapLoaded = false;
+var isFromMapLoaded = false;
+var isWeekendSplashChecked = false;
 
 //Параметр для включения геолокации
 const isGeoLocationOn = true;
@@ -32,14 +35,14 @@ const FromTechnopolis = "From Technopolis";
 const rangeFrom = "A:J";
 
 const Info = "Info";
-const InfoRange = "A:B";
+const InfoRange = "A2:B2";
 
 const spesialRange = "I:J";
 
 //global application time
 function getCurrentTime() {
     let now = new Date();
-    // now.setHours(15);
+    // now.setHours(17);
     // now.setMinutes(35);
     return now;
 }
