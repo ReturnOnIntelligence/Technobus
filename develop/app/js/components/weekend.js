@@ -1,7 +1,6 @@
 
 $(function() {
 
-
 	$('.js-close-weekend-splash').click(function () {
         $('.js-weekend-splash').hide();
         $('#First_page').trigger('click');

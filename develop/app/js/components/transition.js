@@ -54,5 +54,4 @@ function transition3() {
         $('#first_alt_ways').hide();
         $('#second_alt_ways').show();
     }
-
 }

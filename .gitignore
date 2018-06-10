@@ -2,6 +2,7 @@ node_modules
 .DS_Store
 sftpCache.json
 .ftppass
+develop/.idea
 ui/backstop_data/html_report
 ui/backstop_data/bitmaps_test
 
