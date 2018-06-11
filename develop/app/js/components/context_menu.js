@@ -17,8 +17,8 @@ function setMenuActions() {
              dy = window.innerHeight - 35;
          }
          var dx = event.pageX;
-        if(dx +  100 > window.innerWidth){
-            dx = window.innerWidth - 200;
+        if(dx +  300 > window.innerWidth){
+            dx = window.innerWidth - 300;
         }
         $(".context-menu").finish().toggle(100).
 
@@ -52,7 +52,8 @@ function setMenuActions() {
         switch($(this).attr("data-action")) {
 
             // A case for each action. Your actions here
-            case "first": setPushNotification(selectedTime); break;
+            case "first": setPushNotification(selectedTime, 5); break;
+            case "second": setPushNotification(selectedTime, 10); break;
             // case "second": changeBreakMod();
             //
             //                 if(isBreakVisible){

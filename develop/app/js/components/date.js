@@ -269,6 +269,7 @@
             $('#Third_page').trigger('click');
         });
         setMenuActions();
+        checkSavedNotifications();
     }
 $(function () {
 

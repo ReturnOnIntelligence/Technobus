@@ -43,12 +43,14 @@ var isBreakVisible = true;
 var refreshIntervalId;
 var isPushSupported = true;
 var selectedTime;
+const iconForPushNotification = 'assets/images/favicon/android-icon-192x192.png';
 
 //global application time
 function getCurrentTime() {
-    let now = new Date(2018,6,5);
-    now.setHours(11);
-    now.setMinutes(35);
+    let now = new Date();
+    // let now = new Date(2018,6,5);
+    // now.setHours(11);
+    // now.setMinutes(27);
     return now;
 }
 
