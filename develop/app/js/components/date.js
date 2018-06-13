@@ -2,7 +2,7 @@
  * Модуль работы с датой
  */
 
-$(function () {
+// $(function () {
     /**
      * Установка текущей даты, поиск следующей даты в таблице, выделение ближайшего рейса, добавление перерыва,
      * отсчёт времени
@@ -16,7 +16,6 @@ $(function () {
                 res = hour;
             res += ' ч ';
         }
-
         if (minuts < 10) {
             res += "0" + minuts;
         }
@@ -59,9 +58,12 @@ $(function () {
                 if (end <= time) {
                     disabledClass = 'disabled';
                 }
-                $(list[i]).after("<li class=\"break " + disabledClass + "\"><div class=\"time-info\">" +
-                    "<div class=\"info\">Перерыв " + getDiffTime(difH, difM) + "</div>" +
-                    "<div class=\"desc\"></div></div></li>");
+                if(isBreakVisible){
+                    $(list[i]).after("<li class=\"break " + disabledClass + "\"><div class=\"time-info\">" +
+                        "<div class=\"info\">Перерыв " + getDiffTime(difH, difM) + "</div>" +
+                        "<div class=\"desc\"></div></div></li>");
+                }
+
             }
             let difFromNow = end - time;
             let hourDiff = Math.floor(difFromNow / 60);
@@ -94,7 +96,6 @@ $(function () {
     }
 
     function setDate() {
-
         //Обновление и очистка таблицы расписания
         apiObj.showTimetable(0);
 
@@ -192,7 +193,6 @@ $(function () {
             $(selectedItem).addClass("anotherVariants");
         }
 
-
         //Поиск и выделение элемента в таблице к метро
 
         minDiffFromTime = 90000;
@@ -201,7 +201,6 @@ $(function () {
         for (let i = 0; i < listFrom.length; i++) {
             let li = listFrom[i];
             let divTime = li.children[0];
-            let divInfo = li.children[1];
 
             let [h, m] = divTime.innerText.split(':');
 
@@ -218,7 +217,6 @@ $(function () {
         if (minDiffFromTime === 90000) {
             addBussOver(listFrom[listFrom.length - 1]);
         }
-        divTime = selectedItem.children[0];
         divInfo = selectedItem.children[1];
 
 
@@ -270,8 +268,11 @@ $(function () {
         $('li.anotherVariants').click(function () {
             $('#Third_page').trigger('click');
         });
+        setMenuActions();
+        checkSavedNotifications();
     }
+$(function () {
 
     setDate();
-    setInterval(setDate, 30000);
+    refreshIntervalId = setInterval(setDate, 30000);
 });
