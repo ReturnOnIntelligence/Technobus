@@ -38,6 +38,17 @@
 	font-style:normal;
 }
 
+@font-face {
+	font-family:'museo_slab_light';
+	src:url('../fonts/MuseoSlab-Light.eot');
+	src:local('SF UI Text Semibold'), local('SFUIText-Semibold'),
+	url('../fonts/MuseoSlab-Light.eot?#iefix') format('embedded-opentype'),
+	url('../fonts/MuseoSlab-Light.woff') format('woff'),
+	url('../fonts/MuseoSlab-Light.ttf') format('truetype');
+	font-weight:300;
+	font-style:normal;
+}
+
 body {
 	background-color:$onyx-light;
 	font:87.5% 'san_francisco_textregular', Arial,Helvetica,sans-serif;
