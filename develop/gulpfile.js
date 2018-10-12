@@ -89,6 +89,7 @@ gulp.task('build', ['removedist', 'imagemin','sass', 'js'], function () {
 
     var buildFiles = gulp.src([
         'app/*.html',
+        'app/*.json',
         'app/libs/upup/upup.sw.min.js',
         'app/libs/upup/upup.min.js',
     ]).pipe(gulp.dest('dist'));
