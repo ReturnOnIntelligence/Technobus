@@ -7,7 +7,7 @@ body {
 }
 
 footer {
-	padding-bottom:env(safe-area-inset-bottom); // fox for bottom space on iPhoneX
+	padding-bottom:env(safe-area-inset-bottom); // fix for bottom space on iPhone X
 }
 
 .page-wrap {
