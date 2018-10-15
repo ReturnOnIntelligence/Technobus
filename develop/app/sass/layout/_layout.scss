@@ -6,6 +6,10 @@ body {
 	height:100%;
 }
 
+footer {
+	padding-bottom:env(safe-area-inset-bottom); // fox for bottom space on iPhoneX
+}
+
 .page-wrap {
 	position:relative;
 	display:flex;
