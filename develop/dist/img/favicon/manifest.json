@@ -1,25 +1,24 @@
 {
 	"name": "Shuttle Bus",
-	"start_url": ".",
 	"icons": [
 		{
-			"src": "assets/images/favicon/android-icon-192x192.png",
-			"type": "image/png",
+			"src": "\/android-icon-192x192.png",
+			"type": "image\/png",
 			"sizes": "192x192"
 		},
 		{
-			"src": "assets/images/favicon/apple-icon-152x152.png",
-			"type": "image/png",
+			"src": "\/apple-touch-icon-152x152.png",
+			"type": "image\/png",
 			"sizes": "152x152"
 		},
 		{
-			"src": "assets/images/favicon/apple-icon-76x76.png",
-			"type": "image/png",
+			"src": "\/apple-touch-icon-76x76.png",
+			"type": "image\/png",
 			"sizes": "76x76"
 		},
 		{
-			"src": "assets/images/favicon/favicon-32x32.png",
-			"type": "image/png",
+			"src": "\/favicon-32x32.png",
+			"type": "image\/png",
 			"sizes": "32x32"
 		}
 	],
