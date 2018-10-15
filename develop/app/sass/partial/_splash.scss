@@ -39,6 +39,8 @@
 		@include justify-content(flex-end);
 		@include align-items(center);
 		@include flex(1);
+		position:relative;
+		z-index:10;
 
 		[class*='icon-'] {
 			margin-bottom:rem(24);
