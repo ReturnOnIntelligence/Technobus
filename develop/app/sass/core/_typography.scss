@@ -86,3 +86,8 @@ h4 {
 .lead {
 	font-size:rem(17);
 }
+
+* {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+}
