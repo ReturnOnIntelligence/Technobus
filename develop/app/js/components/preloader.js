@@ -3,10 +3,8 @@
  */
 $(function () {
 	var splash = $('.js-splash');
-	var preloader = $('.preloader');
 	var splashContent = $('.splash-content');
 	var SPLASH_DURATION_TIME = 2000;
-	var PRELOADER_DURATION_TIME = 450;
 
 	// Установка времени показа заставки
 	var showSplashContent = function () {
@@ -14,9 +12,9 @@ $(function () {
 		$('.splash').delay(SPLASH_DURATION_TIME).fadeOut("slow");
 	};
 
+	// После полной загрузки изображений появляется контент splash экрана
 	splash.imagesLoaded(function () {
-		preloader.fadeOut();
-		setTimeout(showSplashContent, PRELOADER_DURATION_TIME);
+		showSplashContent();
 	});
 
 	splash.click(function () {

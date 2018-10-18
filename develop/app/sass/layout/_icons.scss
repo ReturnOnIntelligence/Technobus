@@ -68,25 +68,3 @@ $icon-arrow-right-svg:'<svg viewBox="0 0 1792 1792" xmlns="http://www.w3.org/200
 	width:48px;
 	height:57px;
 }
-
-.preloader {
-	position:absolute;
-	top:50%;
-	left:50%;
-	transform:translate(-50%, -50%);
-
-	> .icon {
-		border: 16px solid $white;
-		border-top: 16px solid $onyx-dark-50;
-		border-radius: 50%;
-		width: 120px;
-		height: 120px;
-		font-size:0;
-		animation: spin 2s linear infinite;
-	}
-}
-
-@keyframes spin {
-	0% { transform: rotate(0deg); }
-	100% { transform: rotate(360deg); }
-}
