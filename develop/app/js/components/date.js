@@ -82,7 +82,7 @@ $(function () {
     function addActiveBreak(selectedItem, hourDiff, minutsDiff) {
         $(selectedItem).before("<li class=\"break is-active\"><div class=\"time-info\">" +
             "<div class=\"info\">Перерыв " + getDiffTime(hourDiff, minutsDiff) + "</div>" +
-            "<div class=\"desc\"><a href='javascript:'>Воспользуйтесь общественным транспортом &#10095</a></div></div></li>");
+            "<div class=\"desc\"><a href='javascript:'>Воспользуйтесь общественным транспортом&nbsp;&#10095</a></div></div></li>");
 
     }
 
@@ -90,7 +90,7 @@ $(function () {
     function addBussOver(item) {
         $(item).after("<li class=\"break next is-active\"><div class=\"time-info\">" +
             "<div class=\"info\">Рейсы закончились</div>" +
-            "<div class=\"desc\"><a href='javascript:'>Воспользуйтесь общественным транспортом &#10095</a></div></div></li>");
+            "<div class=\"desc\"><a href='javascript:'>Воспользуйтесь общественным транспортом&nbsp;&#10095</a></div></div></li>");
     }
 
     function setDate() {
