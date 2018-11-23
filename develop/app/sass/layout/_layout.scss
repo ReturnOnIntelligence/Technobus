@@ -6,6 +6,10 @@ body {
 	height:100%;
 }
 
+footer {
+	padding-bottom:env(safe-area-inset-bottom); // fix for bottom space on iPhone X
+}
+
 .page-wrap {
 	position:relative;
 	display:flex;
@@ -20,12 +24,22 @@ body {
 	background:$blue-light;
 
 	p {
-		margin-left:rem(20);
+		margin-left:rem(25);
+		font-size:rem(11);
+	}
+
+	.copyright-note {
+		margin-bottom:5px;
+		font-family:'museo_slab_light';
 		font-size:rem(11);
 	}
 
 	.tube & {
 		background:$onyx-light;
+	}
+
+	.icon-logo-emergn {
+		margin-left:rem(25);
 	}
 }
 
@@ -82,12 +96,10 @@ body {
 			position:absolute;
 			top:-4px;
 			right:-4px;
-			bottom:-4px;
+			bottom:-5px;
 			left:-4px;
 			border-radius:15px;
-			background-image:url('../../assets/images/web-frame.png');
-			background-repeat:no-repeat;
-			background-size:cover;
+			background: linear-gradient(top left, #60DA95, #0FD0FF, #FF71AB, #FF9147);
 			z-index:-1;
 		}
 	}

@@ -8,8 +8,7 @@
 @font-face {
 	font-family:'san_francisco_textregular';
 	src:url('../fonts/SFUIText-Regular.eot');
-	src:local('SF UI Text Regular'), local('SFUIText-Regular'),
-		url('../fonts/SFUIText-Regular.eot?#iefix') format('embedded-opentype'),
+	src:url('../fonts/SFUIText-Regular.eot?#iefix') format('embedded-opentype'),
 		url('../fonts/SFUIText-Regular.woff') format('woff'),
 		url('../fonts/SFUIText-Regular.ttf') format('truetype');
 	font-weight:normal;
@@ -19,8 +18,7 @@
 @font-face {
 	font-family:'san_francisco_textlight';
 	src:url('../fonts/SFUIText-Light.eot');
-	src:local('SF UI Text Light'), local('SFUIText-Light'),
-		url('../fonts/SFUIText-Light.eot?#iefix') format('embedded-opentype'),
+	src:url('../fonts/SFUIText-Light.eot?#iefix') format('embedded-opentype'),
 		url('../fonts/SFUIText-Light.woff') format('woff'),
 		url('../fonts/SFUIText-Light.ttf') format('truetype');
 	font-weight:normal;
@@ -30,11 +28,20 @@
 @font-face {
 	font-family:'san_francisco_textsemibold';
 	src:url('../fonts/SFUIText-Semibold.eot');
-	src:local('SF UI Text Semibold'), local('SFUIText-Semibold'),
-		url('../fonts/SFUIText-Semibold.eot?#iefix') format('embedded-opentype'),
+	src:url('../fonts/SFUIText-Semibold.eot?#iefix') format('embedded-opentype'),
 		url('../fonts/SFUIText-Semibold.woff') format('woff'),
 		url('../fonts/SFUIText-Semibold.ttf') format('truetype');
 	font-weight:normal;
+	font-style:normal;
+}
+
+@font-face {
+	font-family:'museo_slab_light';
+	src:url('../fonts/MuseoSlab-Light.eot');
+	src:url('../fonts/MuseoSlab-Light.eot?#iefix') format('embedded-opentype'),
+		url('../fonts/MuseoSlab-Light.woff') format('woff'),
+		url('../fonts/MuseoSlab-Light.ttf') format('truetype');
+	font-weight:300;
 	font-style:normal;
 }
 
@@ -74,4 +81,9 @@ h4 {
 // Text
 .lead {
 	font-size:rem(17);
+}
+
+* {
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
 }

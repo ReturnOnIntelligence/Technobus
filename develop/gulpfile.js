@@ -40,7 +40,8 @@ gulp.task("common-js", function () {
 gulp.task('js', ['common-js'], function () {
     return gulp.src([
         'app/libs/jquery/dist/jquery.min.js',
-				'app/libs/svg4everybody.min.js',
+        'app/libs/svg4everybody.min.js',
+        'app/js/imagesloaded.pkgd.js',
         // 'app/libs/bootstrap/js/bootstrap.min.js',
         'app/js/common.min.js', // Всегда в конце
     ])
@@ -89,6 +90,7 @@ gulp.task('build', ['removedist', 'imagemin','sass', 'js'], function () {
 
     var buildFiles = gulp.src([
         'app/*.html',
+        'app/*.json',
         'app/libs/upup/upup.sw.min.js',
         'app/libs/upup/upup.min.js',
     ]).pipe(gulp.dest('dist'));

@@ -22,7 +22,7 @@
 	}
 
 	.time {
-		font-family:'san_francisco_textlight';
+		font-family:'museo_slab_light';
 		font-size:rem(32);
 	}
 
@@ -72,6 +72,15 @@
 	li.alert {
 		background:$alert;
 		color:$white;
+
+		a {
+			color:$white;
+
+			&:hover,
+			&:active {
+				color:$white;
+			}
+		}
 	}
 
 	li.break {
